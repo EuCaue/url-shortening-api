@@ -4,6 +4,6 @@ import * as colors from '../../assets/styles/configColors/colors';
 
 export const Container = styled.section`
   display: flex;
-  justify-content: flex;
-  align-items: flex;
+  justify-content: center;
+  align-items: center;
 `;

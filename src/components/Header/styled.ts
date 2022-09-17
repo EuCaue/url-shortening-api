@@ -18,7 +18,7 @@ export const NavBar = styled.nav`
     :hover {
       cursor: pointer;
       color: ${colors.veryDarkViolet};
-      transition: all 400ms ease;
+      transition: all 400ms ease-out;
     }
     + div + span {
       width: 14em;
@@ -48,6 +48,6 @@ export const SignUp = styled.a`
     -o-filter: brightness(0.9) saturate(0.8) contrast(0.9);
     -ms-filter: brightness(0.9) saturate(0.8) contrast(0.9);
     filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    transition: none;
+    /* transition: none; */
   }
 `;
