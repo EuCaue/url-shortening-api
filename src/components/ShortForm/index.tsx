@@ -11,11 +11,10 @@ export default function ShortForm() {
     <>
       <Form>
         <Span>
-          <InputBox placeholder="Shorten It!"></InputBox>
-          <SubmitButton
-            type="submit"
-            onSubmit={(e) => handleSubmit(e)}
-          ></SubmitButton>
+          <InputBox placeholder="Shorten a link here..."></InputBox>
+          <SubmitButton type="submit" onSubmit={(e) => handleSubmit(e)}>
+            Shorten It!
+          </SubmitButton>
         </Span>
       </Form>
     </>

@@ -8,6 +8,9 @@ export const NavBar = styled.nav`
   align-items: center;
   text-align: center;
   margin: auto;
+  /* width: 85.7%; */
+  /* width: 100%; */
+  /* width: 42em; */
   width: 65em;
   transform: translateY(1.2em);
 

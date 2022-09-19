@@ -14,4 +14,16 @@ export default createGlobalStyle`
 html, body, #root {
   height: 100%;
 }
+
+body {
+  overflow-x: hidden;
+  ::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+}
+
+
 `;

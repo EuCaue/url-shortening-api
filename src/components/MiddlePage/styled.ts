@@ -4,19 +4,20 @@ import styled from 'styled-components';
 import * as colors from '../../assets/styles/configColors/colors';
 
 export const Img = styled.img`
-  display: flex;
+  /* display: inline-block !important; */
   align-items: center;
   justify-content: center;
-  transform: translateX(6em) translateY(2em) scale(0.8);
-  background-position: bottom;
+  transform: translateX(12em) translateY(2em) scale(0.9);
 `;
 
 export const H1 = styled.h1`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3.7em;
-  width: 90%;
+  font-size: 3.5rem;
+  /* letter-spacing: -1px; */
+  /* width: 90%; */
+  width: 7.39em;
   color: ${colors.veryDarkBlue};
 `;
 
@@ -24,7 +25,8 @@ export const H2 = styled.h2`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  /* width: 80%; */
+  width: 25em;
   color: ${colors.grayishViolet};
   font-weight: 500;
 `;
@@ -67,5 +69,5 @@ export const Container = styled.section`
 export const Span = styled.span`
   display: flex;
   flex-direction: column;
-  transform: translateX(6.2em);
+  transform: translateX(1.5em);
 `;
