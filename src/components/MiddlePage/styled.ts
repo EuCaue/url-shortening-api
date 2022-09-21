@@ -7,7 +7,9 @@ export const Img = styled.img`
   /* display: inline-block !important; */
   align-items: center;
   justify-content: center;
-  transform: translateX(12em) translateY(2em) scale(0.9);
+  transform: scale(0.9);
+  margin-left: 12em;
+  margin-top: 2em;
 `;
 
 export const H1 = styled.h1`
@@ -40,7 +42,8 @@ export const Link = styled.a`
   color: #fff !important;
   border-radius: 2em;
   padding: 0.5em 1.5em;
-  transform: translateY(1.5em);
+  /* transform: translateY(1.5em); */
+  margin-top: 1.5em;
   text-decoration: none;
   color: ${colors.grayishViolet};
   font-weight: 700;
@@ -62,12 +65,12 @@ export const Container = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translateX(3.2em);
-  transform: translateY(3.2em);
+  /* transform: translateY(3.2em); */
 `;
 
 export const Span = styled.span`
   display: flex;
   flex-direction: column;
-  transform: translateX(1.5em);
+  /* transform: translateX(1.5em); */
+  margin-left: 15em;
 `;

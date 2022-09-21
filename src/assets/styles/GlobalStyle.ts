@@ -9,6 +9,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
+
 }
 
 html, body, #root {
@@ -21,6 +22,7 @@ body {
   display: none;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  z-index: 1;
 }
 
 }

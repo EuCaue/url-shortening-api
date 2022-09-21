@@ -11,8 +11,10 @@ export default function UrlShort() {
   return (
     <>
       <Header />
-      <MiddlePage />
-      <ShortForm />
+      <main>
+        <MiddlePage />
+        <ShortForm />
+      </main>
     </>
   );
 }

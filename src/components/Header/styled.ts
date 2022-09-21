@@ -12,7 +12,8 @@ export const NavBar = styled.nav`
   /* width: 100%; */
   /* width: 42em; */
   width: 65em;
-  transform: translateY(1.2em);
+  /* transform: translateY(1.2em); */
+  margin-top: 1.2em;
 
   a {
     text-decoration: none;
