@@ -4,7 +4,11 @@ import styled from 'styled-components';
 import * as colors from '../../assets/styles/configColors/colors';
 import ImgBoost from '../../assets/images/bg-shorten-desktop.svg';
 
-export const SubmitButton = styled.button`
+type Props = {
+  error: boolean;
+};
+
+export const SubmitButton = styled.button<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,10 +16,11 @@ export const SubmitButton = styled.button`
   border: none;
   color: #fff !important;
   border-radius: 5px;
-  height: 2.5em;
+  height: 3em;
   padding: 1em 1.5em;
   /* transform: translateX(1.5em); */
   margin-left: 15px;
+  /* margin-top: ${(props) => (props.error === false ? 'inherit' : '1em')}; */
   color: ${colors.grayishViolet};
   font-weight: 700;
   :hover {
@@ -31,30 +36,56 @@ export const SubmitButton = styled.button`
   }
 `;
 
-export const InputBox = styled.input`
-  display: flex;
+export const InputBox = styled.input<Props>`
+  display: inline-flex;
   outline: none;
   align-items: center;
   justify-content: center;
   width: 45em;
-  height: 2.5em;
+  height: 3em;
   border-radius: 5px;
-  border: none;
+  /* margin-top: ${(props) => (props.error === false ? '0' : '1em')}; */
 
+  border: ${(props) => (props.error === false ? 'none' : 'solid')};
+  border-color: ${colors.red};
   ::placeholder {
+    color: ${(props) =>
+      props.error === false ? `currentColor` : `${colors.red}`};
     padding: 1.5em;
     font-size: 16px;
   }
   ::-moz-placeholder {
+    color: ${(props) =>
+      props.error === false ? `currentColor` : `${colors.red}`};
     padding: 1.5em;
     font-size: 16px;
   }
 `;
 
-export const Span = styled.span`
+export const Small = styled.small<Props>`
+  /* display: ${(props) => (props.error === false ? 'none' : 'inline')}; */
+  /* position: absolute; */
+  flex: 0;
+  flex-basis: 100%;
+  flex-shrink: 100%;
+  left: 8.7em;
+  left: 8%;
+  bottom: -3em;
+  bottom: -16%;
+  font-size: 0.7em;
+  visibility: visible;
+  content: 'Please add a link';
+  margin-left: 4.5em;
+  color: ${colors.red};
+  flex-wrap: wrap;
+`;
+
+export const Span = styled.span<Props>`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
+  padding-top: ${(props) => (props.error === false ? '0' : '1.3em')};
 `;
 
 export const Form = styled.form`
@@ -63,16 +94,21 @@ export const Form = styled.form`
   background-position: left -15px;
   display: flex;
   align-items: center;
+
   justify-content: center;
+
   border-radius: 5px;
-  /* transform: translateY(6em) translateX(6em); */
   margin-top: 2em;
-  margin-left: 6em;
+  margin-right: 3.5em;
   width: 60em;
   height: 7em;
 `;
 
 export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   background-color: ${colors.gray};
   z-index: 0;
   height: 90%;
@@ -85,7 +121,7 @@ export const ShortLink = styled.div`
   justify-content: space-between;
   width: 60em;
   margin-top: 1em;
-  margin-left: 6em;
+  margin-right: 3.5em;
   z-index: 1;
   height: 3em;
   border-radius: 5px;
