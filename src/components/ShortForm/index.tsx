@@ -61,13 +61,15 @@ export default function ShortForm() {
 
   const handleSubmit = async (event?: FormEvent): Promise<void> => {
     event?.preventDefault();
-    console.log('HandleSubmit');
     if (urlParams === '') {
-      // setControl(false);
       setError(true);
     }
 
     await handleAPI();
+  };
+
+  const copyShortLink = async () => {
+    await navigator.clipboard.writeText(shortLink);
   };
 
   function ResponseAPi(): JSX.Element {
@@ -80,7 +82,9 @@ export default function ShortForm() {
           <ShortenLink href={shortLink} target="_blank">
             {shortLink}
           </ShortenLink>
-          <CopyButton error={error}>Copy</CopyButton>
+          <CopyButton onClick={copyShortLink} error={error}>
+            Copy
+          </CopyButton>
         </Span>
       </ShortLink>
     ) : (
@@ -89,10 +93,7 @@ export default function ShortForm() {
   }
 
   const handleKeypress = (event: KeyboardEvent): void => {
-    if (event.code === '13') {
-      handleSubmit();
-      // setControl(true);
-    }
+    if (event.code === '13') handleSubmit();
   };
 
   const handleAPI = async (): Promise<void> => {
@@ -100,10 +101,8 @@ export default function ShortForm() {
       // eslint-disable-next-line no-shadow
       const { data } = await axios.get<ShortAPI>(`${baseAPI}${urlParams}`);
       setData(data);
-      console.log('handleApi');
       setControl(false);
       setApiCode(data.result.code);
-      console.log(data.result.code);
       setOriginalLink(data.result.original_link);
       setShortLink(data.result.full_short_link);
       setError(false);
