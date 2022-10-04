@@ -1,6 +1,15 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-use-before-define */
 import axios from 'axios';
-import React, { FormEvent, KeyboardEvent, useState } from 'react';
+import React, {
+  ChangeEvent,
+  FormEvent,
+  KeyboardEvent,
+  useState,
+  useMemo,
+  useCallback,
+  useEffect,
+} from 'react';
 
 import {
   Form,
@@ -24,47 +33,56 @@ export default function ShortForm() {
     };
   }
 
-  const [urlParams, setUrlParams] = useState<string>();
-  const [shortLink, setShortLink] = useState<string>();
-  const [apiCode, setApiCode] = useState<string>();
+  const [urlParams, setUrlParams] = useState<string>('');
+  const [shortLink, setShortLink] = useState<string>('');
+  const [apiCode, setApiCode] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
-  const [originalLink, setOriginalLink] = useState<string>();
+  const [data, setData] = useState<ShortAPI>({
+    result: {
+      code: '',
+      full_short_link: '',
+      original_link: '',
+    },
+  });
+  const [originalLink, setOriginalLink] = useState<string>('');
   const [control, setControl] = useState<boolean>(false);
   const [responseApi, SetResponseApi] = useState<JSX.Element[]>([
     <ResponseAPi />,
   ]);
   const baseAPI = 'https://api.shrtco.de/v2/shorten?url=';
 
-  const handleSubmit = async (event: FormEvent): Promise<void> => {
-    event.preventDefault();
-    try {
-      const { data } = await axios.get<ShortAPI>(`${baseAPI}${urlParams}`);
-      setOriginalLink(data.result.original_link);
-      setShortLink(data.result.full_short_link);
-      setApiCode(data.result.code);
-      setError(false);
-      console.log(error);
-    } catch (err) {
-      console.log(err);
+  const responseApiMap = useCallback(
+    (): JSX.Element[] =>
+      responseApi.map(
+        (api, index): JSX.Element => <div key={index}>{api}</div>,
+      ),
+    [responseApi],
+  );
+
+  const handleSubmit = async (event?: FormEvent): Promise<void> => {
+    event?.preventDefault();
+    console.log('HandleSubmit');
+    if (urlParams === '') {
+      // setControl(false);
       setError(true);
-      console.log(error);
     }
+
+    await handleAPI();
   };
+
   function ResponseAPi(): JSX.Element {
     return apiCode ? (
-      <>
-        <ShortLink>
-          <OriginalLink href={originalLink} target="_blank">
-            {originalLink}
-          </OriginalLink>
-          <Span>
-            <ShortenLink href={shortLink} target="_blank">
-              {shortLink}
-            </ShortenLink>
-            <CopyButton>Copy</CopyButton>
-          </Span>
-        </ShortLink>
-      </>
+      <ShortLink>
+        <OriginalLink href={originalLink} target="_blank">
+          {originalLink}
+        </OriginalLink>
+        <Span error={error}>
+          <ShortenLink href={shortLink} target="_blank">
+            {shortLink}
+          </ShortenLink>
+          <CopyButton error={error}>Copy</CopyButton>
+        </Span>
+      </ShortLink>
     ) : (
       <></>
     );
@@ -72,10 +90,35 @@ export default function ShortForm() {
 
   const handleKeypress = (event: KeyboardEvent): void => {
     if (event.code === '13') {
-      SetResponseApi([...responseApi, <ResponseAPi />]);
-      setControl(true);
+      handleSubmit();
+      // setControl(true);
     }
   };
+
+  const handleAPI = async (): Promise<void> => {
+    try {
+      // eslint-disable-next-line no-shadow
+      const { data } = await axios.get<ShortAPI>(`${baseAPI}${urlParams}`);
+      setData(data);
+      console.log('handleApi');
+      setControl(false);
+      setApiCode(data.result.code);
+      console.log(data.result.code);
+      setOriginalLink(data.result.original_link);
+      setShortLink(data.result.full_short_link);
+      setError(false);
+    } catch (err) {
+      setError(true);
+      console.log(err, 'handleSubmit Catch err');
+    }
+  };
+
+  useEffect(() => {
+    if (apiCode) {
+      handleSubmit();
+      SetResponseApi(() => [<ResponseAPi />, ...responseApi]);
+    }
+  }, [apiCode]);
 
   return (
     <>
@@ -84,41 +127,25 @@ export default function ShortForm() {
           <Span error={error}>
             <InputBox
               placeholder="Shorten a link here..."
-              onChange={(e) => setUrlParams(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                setUrlParams(e.target.value);
+              }}
               error={error}
             />
 
-            {/* <SubmitButton type="submit" onClick={() => setControl(true)}>
-              Shorten It!
-            </SubmitButton> */}
             <SubmitButton
               type="submit"
               error={error}
-              onKeyPress={(e) => handleKeypress(e)}
-              onClick={() => {
-                try {
-                  SetResponseApi([...responseApi, <ResponseAPi />]);
-                } catch (err) {
-                  console.log(err);
-                }
-                setControl(true);
-                console.log('here');
-              }}
+              onKeyPress={(e): void => handleKeypress(e)}
             >
               Shorten It!
             </SubmitButton>
+
             <Small error={error}>{error ? 'Please add a link' : ''}</Small>
           </Span>
         </Form>
 
-        {/* {control ? <ResponseAPi /> : false} */}
-        {
-          <div>
-            {responseApi.map((item, index) => (
-              <div key={index}>{item}</div>
-            ))}
-          </div>
-        }
+        {responseApiMap()}
       </Container>
     </>
   );
