@@ -8,6 +8,10 @@ type Props = {
   error: boolean;
 };
 
+type CopyLink = {
+  copyLink: boolean;
+};
+
 export const SubmitButton = styled.button<Props>`
   display: flex;
   align-items: center;
@@ -147,10 +151,12 @@ export const OriginalLink = styled.a`
   margin-left: 1em;
 `;
 
-export const CopyButton = styled(SubmitButton)`
+export const CopyButton = styled(SubmitButton)<CopyLink>`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 1em;
   height: 1rem;
+  background-color: ${(props) =>
+    props.copyLink === true ? colors.darkViolet : colors.cyan};
 `;

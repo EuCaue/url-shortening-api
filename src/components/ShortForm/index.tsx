@@ -6,7 +6,6 @@ import React, {
   FormEvent,
   KeyboardEvent,
   useState,
-  useMemo,
   useCallback,
   useEffect,
 } from 'react';
@@ -37,6 +36,7 @@ export default function ShortForm() {
   const [shortLink, setShortLink] = useState<string>('');
   const [apiCode, setApiCode] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
+  const [copied, setCopied] = useState<boolean>(false);
   const [data, setData] = useState<ShortAPI>({
     result: {
       code: '',
@@ -45,12 +45,11 @@ export default function ShortForm() {
     },
   });
   const [originalLink, setOriginalLink] = useState<string>('');
-  const [control, setControl] = useState<boolean>(false);
   const [responseApi, SetResponseApi] = useState<JSX.Element[]>([
     <ResponseAPi />,
   ]);
   const baseAPI = 'https://api.shrtco.de/v2/shorten?url=';
-
+  let copyLink = false;
   const responseApiMap = useCallback(
     (): JSX.Element[] =>
       responseApi.map(
@@ -68,8 +67,17 @@ export default function ShortForm() {
     await handleAPI();
   };
 
-  const copyShortLink = async () => {
-    await navigator.clipboard.writeText(shortLink);
+  const copyShortLink = async (): Promise<void> => {
+    try {
+      await navigator.clipboard.writeText(shortLink);
+      setCopied(true);
+      copyLink = true;
+      console.log(copyLink);
+    } catch (err) {
+      copyLink = false;
+      setCopied(false);
+      console.error(err);
+    }
   };
 
   function ResponseAPi(): JSX.Element {
@@ -82,8 +90,9 @@ export default function ShortForm() {
           <ShortenLink href={shortLink} target="_blank">
             {shortLink}
           </ShortenLink>
-          <CopyButton onClick={copyShortLink} error={error}>
-            Copy
+          <CopyButton onClick={copyShortLink} error={error} copyLink={copyLink}>
+            {copyLink === true ? 'Copied!' : 'Copy'}
+            <>{setCopied(false)}</>
           </CopyButton>
         </Span>
       </ShortLink>
@@ -101,7 +110,6 @@ export default function ShortForm() {
       // eslint-disable-next-line no-shadow
       const { data } = await axios.get<ShortAPI>(`${baseAPI}${urlParams}`);
       setData(data);
-      setControl(false);
       setApiCode(data.result.code);
       setOriginalLink(data.result.original_link);
       setShortLink(data.result.full_short_link);
@@ -117,8 +125,14 @@ export default function ShortForm() {
       handleSubmit();
       SetResponseApi(() => [<ResponseAPi />, ...responseApi]);
     }
-  }, [apiCode]);
+  }, [apiCode, copyLink]);
 
+  // useEffect(() => {
+  //   if (copyLink) {
+  //     setCopied(false);
+  //   }
+  // }, [copied]);
+  //
   return (
     <>
       <Container>
@@ -144,7 +158,8 @@ export default function ShortForm() {
           </Span>
         </Form>
 
-        {responseApiMap()}
+        {/* {copied === true ? responseApiMap() : responseApi} */}
+        {copied === true ? responseApiMap() : responseApi}
       </Container>
     </>
   );
