@@ -21,6 +21,8 @@ import {
   CopyButton,
   OriginalLink,
   Small,
+  H1,
+  P,
 } from './styled';
 
 export default function ShortForm() {
@@ -127,12 +129,6 @@ export default function ShortForm() {
     }
   }, [apiCode, copyLink]);
 
-  // useEffect(() => {
-  //   if (copyLink) {
-  //     setCopied(false);
-  //   }
-  // }, [copied]);
-  //
   return (
     <>
       <Container>
@@ -158,8 +154,12 @@ export default function ShortForm() {
           </Span>
         </Form>
 
-        {/* {copied === true ? responseApiMap() : responseApi} */}
         {copied === true ? responseApiMap() : responseApi}
+        <H1>Advanced Statistics</H1>
+        <P>
+          Track how your links are perfoming across the web with our advanced
+          statistics dashboard.
+        </P>
       </Container>
     </>
   );

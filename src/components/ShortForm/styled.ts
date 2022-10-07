@@ -22,7 +22,6 @@ export const SubmitButton = styled.button<Props>`
   border-radius: 5px;
   height: 3em;
   padding: 1em 1.5em;
-  /* transform: translateX(1.5em); */
   margin-left: 15px;
   /* margin-top: ${(props) => (props.error === false ? 'inherit' : '1em')}; */
   color: ${colors.grayishViolet};
@@ -30,7 +29,6 @@ export const SubmitButton = styled.button<Props>`
   :hover {
     cursor: pointer;
     color: ${colors.veryDarkViolet};
-    transition: all 400ms ease;
     -webkit-filter: brightness(0.9) saturate(0.8) contrast(0.9);
     -moz-filter: brightness(0.9) saturate(0.8) contrast(0.9);
     -o-filter: brightness(0.9) saturate(0.8) contrast(0.9);
@@ -60,15 +58,13 @@ export const InputBox = styled.input<Props>`
   }
   ::-moz-placeholder {
     color: ${(props) =>
-      props.error === false ? `currentColor` : `${colors.red}`};
+      props.error === false ? 'currentColor' : `${colors.red}`};
     padding: 1.5em;
     font-size: 16px;
   }
 `;
 
 export const Small = styled.small<Props>`
-  /* display: ${(props) => (props.error === false ? 'none' : 'inline')}; */
-  /* position: absolute; */
   flex: 0;
   flex-basis: 100%;
   flex-shrink: 100%;
@@ -98,9 +94,7 @@ export const Form = styled.form`
   background-position: left -15px;
   display: flex;
   align-items: center;
-
   justify-content: center;
-
   border-radius: 5px;
   margin-top: 2em;
   margin-right: 3.5em;
@@ -113,7 +107,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: ${colors.gray};
+  background-color: ${colors.grayishViolet};
   z-index: 0;
   height: 90%;
 `;
@@ -156,7 +150,24 @@ export const CopyButton = styled(SubmitButton)<CopyLink>`
   justify-content: center;
   align-items: center;
   margin-right: 1em;
+  padding: 1em 1.5em;
   height: 1rem;
   background-color: ${(props) =>
     props.copyLink === true ? colors.darkViolet : colors.cyan};
+`;
+
+export const H1 = styled.h1`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4.5em;
+  text-align: center;
+  color: ${colors.veryDarkViolet};
+  font-size: 1.8em;
+`;
+
+export const P = styled.p`
+  text-align: center;
+  color: ${colors.veryDarkViolet};
+  width: 29em;
 `;

@@ -51,7 +51,6 @@ export const Link = styled.a`
   :hover {
     cursor: pointer;
     color: ${colors.veryDarkViolet};
-    transition: all 400ms ease;
     -webkit-filter: brightness(0.9) saturate(0.8) contrast(0.9);
     -moz-filter: brightness(0.9) saturate(0.8) contrast(0.9);
     -o-filter: brightness(0.9) saturate(0.8) contrast(0.9);
