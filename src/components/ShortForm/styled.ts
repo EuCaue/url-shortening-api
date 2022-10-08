@@ -107,9 +107,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: ${colors.grayishViolet};
+  background-color: lightgray;
   z-index: 0;
-  height: 90%;
+  height: 100%;
 `;
 
 export const ShortLink = styled.div`
