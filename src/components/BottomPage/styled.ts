@@ -1,35 +1,76 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 import * as colors from '../../assets/styles/configColors/colors';
-import iconBrand from '../../assets/images/icon-brand-recognition.svg';
 
 interface Icon {
   icon: string;
 }
 
+export const BlueLine = styled.div`
+  position: absolute;
+  z-index: -1;
+`;
+
 export const Container = styled.section`
   display: flex;
   align-items: center;
+  z-index: 3;
+  flex: 100%;
   justify-content: center;
   position: relative;
-  float: inherit;
-  background-color: ${colors.gray};
-  background-color: lightgray;
-	/* height: 2em; */
+  /* background-color: ${colors.gray}; */
+  /* background-color: lightgray; */
+  background-color: #f0f1f6;
+  div:nth-child(1) {
+    margin-bottom: 4.8em;
+    ${BlueLine} {
+      width: 3.2em;
+      border-style: solid;
+      border-color: ${colors.cyan};
+      bottom: 6em;
+      left: 27.5em;
+    }
+
+    p {
+      width: 102%;
+    }
+  }
+
+  div:nth-child(2) {
+    ${BlueLine} {
+      width: 2.2em;
+      border: solid;
+      border-color: ${colors.cyan};
+      bottom: 6em;
+      left: 48.5em;
+      z-index: -1;
+    }
+    span {
+      top: 4.5em;
+    }
+  }
+
+  div:nth-child(3) {
+    margin-top: 9em;
+    span {
+      top: 6.5em;
+    }
+  }
 `;
 
 export const Background = styled.div`
   background-color: #fff;
-  /* display: inline-flex !important; */
-  width: 19em;
+  display: flex;
+  flex-direction: column;
+  width: 19.2em;
+  /* height: 14em; */
   margin-top: 4em;
-  margin-left: 6em;
-  height: 120%;
-`;
-
-export const Span = styled.span`
-  display: block;
-  border-radius: 2em;
+  z-index: 2;
+  margin-left: 2em;
+  height: 190%;
+  flex-wrap: wrap;
+  border-radius: 4px;
 `;
 
 export const IconSVG = styled.span<Icon>`
@@ -41,14 +82,14 @@ export const IconSVG = styled.span<Icon>`
   width: 4.5em;
   height: 4.5em;
   position: absolute;
-  padding: 1em;
-  margin-left: 1em;
+  /* padding: 1em; */
+  margin-left: 1.6em;
   top: 2em;
 `;
 
 export const H1 = styled.h1`
   /* padding: 1em; */
-  padding-top: 4em;
+  padding-top: 3em;
   padding-left: 1em;
   color: ${colors.veryDarkViolet};
   text-align: left;
@@ -60,9 +101,12 @@ export const H1 = styled.h1`
 export const P = styled.p`
   color: ${colors.grayishViolet};
   font-weight: 500;
-  padding: 1em;
-  padding-left: 1.3em;
-  height: 50%;
+  /* padding: 1em; */
+  padding-top: 1em;
+  padding-left: 1.4em;
+  padding-right: 1.4em;
+  padding-bottom: 1.7em;
+  /* height: 50%; */
   font-size: 0.9em;
   text-align: left;
 `;

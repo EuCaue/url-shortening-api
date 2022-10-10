@@ -107,7 +107,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: lightgray;
+  /* background-color: lightgray; */
+  background-color: #f0f1f6;
   z-index: 0;
   height: 100%;
 `;
