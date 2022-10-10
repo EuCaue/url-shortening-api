@@ -19,9 +19,7 @@ export const Container = styled.section`
   flex: 100%;
   justify-content: center;
   position: relative;
-  /* background-color: ${colors.gray}; */
-  /* background-color: lightgray; */
-  background-color: #f0f1f6;
+
   div:nth-child(1) {
     margin-bottom: 4.8em;
     ${BlueLine} {
@@ -64,7 +62,6 @@ export const Background = styled.div`
   display: flex;
   flex-direction: column;
   width: 19.2em;
-  /* height: 14em; */
   margin-top: 4em;
   z-index: 2;
   margin-left: 2em;
@@ -82,13 +79,11 @@ export const IconSVG = styled.span<Icon>`
   width: 4.5em;
   height: 4.5em;
   position: absolute;
-  /* padding: 1em; */
   margin-left: 1.6em;
   top: 2em;
 `;
 
 export const H1 = styled.h1`
-  /* padding: 1em; */
   padding-top: 3em;
   padding-left: 1em;
   color: ${colors.veryDarkViolet};
@@ -101,12 +96,10 @@ export const H1 = styled.h1`
 export const P = styled.p`
   color: ${colors.grayishViolet};
   font-weight: 500;
-  /* padding: 1em; */
   padding-top: 1em;
   padding-left: 1.4em;
   padding-right: 1.4em;
   padding-bottom: 1.7em;
-  /* height: 50%; */
   font-size: 0.9em;
   text-align: left;
 `;

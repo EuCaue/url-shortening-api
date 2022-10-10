@@ -24,25 +24,27 @@ const BoxWithIcon = (props: BoxIcon): JSX.Element => {
 
 export default function BottomPage() {
   return (
-    <Container>
-      <BoxWithIcon
-        icon={iconBrand}
-        h1="Brand Recognition"
-        p="Boost you brand recognition with each click.
+    <>
+      <Container>
+        <BoxWithIcon
+          icon={iconBrand}
+          h1="Brand Recognition"
+          p="Boost you brand recognition with each click.
 		Generic links don't mean a thing. Branded links help instil confidence in your content."
-      />
-      <BoxWithIcon
-        icon={iconRecord}
-        h1="Detailed Records"
-        p="Gain insights into who is clicking your links. Knowing When and where people engage with you content helps inform better decisions."
-      />
-      <BoxWithIcon
-        icon={iconFullyCustom}
-        h1="Fully Customizable"
-        p="
+        />
+        <BoxWithIcon
+          icon={iconRecord}
+          h1="Detailed Records"
+          p="Gain insights into who is clicking your links. Knowing When and where people engage with you content helps inform better decisions."
+        />
+        <BoxWithIcon
+          icon={iconFullyCustom}
+          h1="Fully Customizable"
+          p="
 		Improve brand awareness and content discoverability through customizable links, supercharging audiencia engagement.
 		"
-      />
-    </Container>
+        />
+      </Container>
+    </>
   );
 }

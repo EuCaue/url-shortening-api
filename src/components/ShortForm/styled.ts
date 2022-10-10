@@ -23,7 +23,6 @@ export const SubmitButton = styled.button<Props>`
   height: 3em;
   padding: 1em 1.5em;
   margin-left: 15px;
-  /* margin-top: ${(props) => (props.error === false ? 'inherit' : '1em')}; */
   color: ${colors.grayishViolet};
   font-weight: 700;
   :hover {
@@ -108,7 +107,7 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   /* background-color: lightgray; */
-  background-color: #f0f1f6;
+
   z-index: 0;
   height: 100%;
 `;
@@ -169,6 +168,6 @@ export const H1 = styled.h1`
 
 export const P = styled.p`
   text-align: center;
-  color: ${colors.veryDarkViolet};
+  color: gray;
   width: 29em;
 `;
