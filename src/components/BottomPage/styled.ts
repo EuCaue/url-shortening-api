@@ -127,16 +127,17 @@ export const H1Boost = styled.h1`
 `;
 
 export const DivImage = styled.div`
-  margin-top: 6em;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: auto;
+  margin-top: 6em;
   text-align: center;
   align-items: center;
   height: 13.2em;
-  /* width: 80em; */
+  width: 80em;
   background-image: url(${boostDesktop});
-  background-repeat: space;
+  background-repeat: no-repeat;
   background-position: center;
   background-color: ${colors.darkViolet};
 `;
