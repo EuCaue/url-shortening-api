@@ -2,10 +2,21 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 import * as colors from '../../assets/styles/configColors/colors';
+import boostDesktop from '../../assets/images/bg-boost-desktop.svg';
+import { Link } from '../MiddlePage/styled';
 
 interface Icon {
   icon: string;
 }
+
+export const WhiteHover = styled.span`
+  border-radius: 2em;
+  margin-top: 1.5em;
+  :hover {
+    background-color: white;
+    opacity: 100%;
+  }
+`;
 
 export const BlueLine = styled.div`
   position: absolute;
@@ -102,4 +113,37 @@ export const P = styled.p`
   padding-bottom: 1.7em;
   font-size: 0.9em;
   text-align: left;
+`;
+
+export const H1Boost = styled.h1`
+  font-size: 2em;
+  color: #fff;
+  margin-right: 1em;
+`;
+
+export const DivImage = styled.div`
+  margin-top: 6em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  height: 13.2em;
+  width: 80em;
+  background-image: url(${boostDesktop});
+  background-repeat: no-repeat;
+  background-position: 100%;
+  background-color: ${colors.darkViolet};
+`;
+
+export const LinkBottom = styled(Link)`
+  /* margin-right: 1em; */
+  border-radius: 2em;
+  margin-top: 0;
+  font-size: 1.4em;
+  width: fit-content !important;
+
+  :hover {
+    opacity: 50%;
+  }
 `;

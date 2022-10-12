@@ -12,6 +12,17 @@ type CopyLink = {
   copyLink: boolean;
 };
 
+export const WhiteHover = styled.span`
+  z-index: 1;
+  /* width: 9.6em; */
+  margin-left: 1.2em;
+  border-radius: 5px;
+  :hover {
+    background-color: white;
+    opacity: 100%;
+  }
+`;
+
 export const SubmitButton = styled.button<Props>`
   display: flex;
   align-items: center;
@@ -22,36 +33,30 @@ export const SubmitButton = styled.button<Props>`
   border-radius: 5px;
   height: 3em;
   padding: 1em 1.5em;
-  margin-left: 15px;
-  color: ${colors.grayishViolet};
+  /* margin-left: 1.2em; */
   font-weight: 700;
   :hover {
     cursor: pointer;
-    color: ${colors.veryDarkViolet};
-    -webkit-filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    -moz-filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    -o-filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    -ms-filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    filter: brightness(0.9) saturate(0.8) contrast(0.9);
+    opacity: 50%;
     transition: all 400ms ease-out;
   }
+  z-index: 3;
 `;
 
 export const InputBox = styled.input<Props>`
   display: inline-flex;
+  position: relative;
   outline: none;
   align-items: center;
   justify-content: center;
   width: 45em;
   height: 3em;
   border-radius: 5px;
-  /* margin-top: ${(props) => (props.error === false ? '0' : '1em')}; */
-
   border: ${(props) => (props.error === false ? 'none' : 'solid')};
   border-color: ${colors.red};
   ::placeholder {
     color: ${(props) =>
-      props.error === false ? `currentColor` : `${colors.red}`};
+      props.error === false ? `current/* Co */lor` : `${colors.red}`};
     padding: 1.5em;
     font-size: 16px;
   }

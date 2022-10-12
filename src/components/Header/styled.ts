@@ -43,15 +43,16 @@ export const SignUp = styled.a`
   color: #fff !important;
   border-radius: 2em;
   padding: 0.3em 1.5em;
-  margin-left: 1em;
+`;
 
+export const WhiteHover = styled.span`
+  background-color: red;
+  width: fit-content;
+  border-radius: 2em;
+  margin-left: 1em;
   :hover {
-    /* background-color: hsla(180, 53%, 61%, 1); */
-    -webkit-filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    -moz-filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    -o-filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    -ms-filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    /* transition: none; */
+    background-color: white;
+    opacity: 50%;
+    /* transition: all 400ms ease-out; */
   }
 `;

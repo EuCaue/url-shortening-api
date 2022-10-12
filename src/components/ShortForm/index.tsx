@@ -23,6 +23,7 @@ import {
   Small,
   H1,
   P,
+  WhiteHover,
 } from './styled';
 
 export default function ShortForm() {
@@ -141,15 +142,15 @@ export default function ShortForm() {
               }}
               error={error}
             />
-
-            <SubmitButton
-              type="submit"
-              error={error}
-              onKeyPress={(e): void => handleKeypress(e)}
-            >
-              Shorten It!
-            </SubmitButton>
-
+            <WhiteHover>
+              <SubmitButton
+                type="submit"
+                error={error}
+                onKeyPress={(e): void => handleKeypress(e)}
+              >
+                Shorten It!
+              </SubmitButton>
+            </WhiteHover>
             <Small error={error}>{error ? 'Please add a link' : ''}</Small>
           </Span>
         </Form>

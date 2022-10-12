@@ -1,6 +1,17 @@
 import React from 'react';
 
-import { Container, Background, BlueLine, IconSVG, H1, P } from './styled';
+import {
+  Container,
+  Background,
+  BlueLine,
+  IconSVG,
+  H1,
+  P,
+  DivImage,
+  H1Boost,
+  LinkBottom,
+  WhiteHover,
+} from './styled';
 import iconBrand from '../../assets/images/icon-brand-recognition.svg';
 import iconRecord from '../../assets/images/icon-detailed-records.svg';
 import iconFullyCustom from '../../assets/images/icon-fully-customizable.svg';
@@ -45,6 +56,12 @@ export default function BottomPage() {
 		"
         />
       </Container>
+      <DivImage>
+        <H1Boost>Boost your links today</H1Boost>
+        <WhiteHover>
+          <LinkBottom>Get Started</LinkBottom>
+        </WhiteHover>
+      </DivImage>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import illustrationWorking from '../../assets/images/illustration-working.svg';
-import { Img, H1, H2, Link, Span, Container } from './styled';
+import { Img, H1, H2, Link, WhiteHover, Span, Container } from './styled';
 
 export default function MiddlePage() {
   return (
@@ -12,9 +12,11 @@ export default function MiddlePage() {
           Build your brand’s recognition and get detailed insights on how your
           links are performing.
         </H2>
-        <Link href="#" target="_blank" rel="noopener noreferrer">
-          Get Started
-        </Link>
+        <WhiteHover>
+          <Link href="#" target="_self">
+            Get Started
+          </Link>
+        </WhiteHover>
       </Span>
 
       <Img src={illustrationWorking} alt="Illustration Working" />

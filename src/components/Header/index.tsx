@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { NavBar, Divider, SignUp } from './styled';
+import { NavBar, Divider, SignUp, WhiteHover } from './styled';
 import logo from '../../assets/images/logo.svg';
 
 export default function Header() {
@@ -16,7 +16,9 @@ export default function Header() {
 
         <span>
           <a href="#">Login</a>
-          <SignUp href="#">Sign Up</SignUp>
+          <WhiteHover>
+            <SignUp href="#">Sign Up</SignUp>
+          </WhiteHover>
         </span>
       </NavBar>
     </>

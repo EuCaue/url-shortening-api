@@ -43,20 +43,26 @@ export const Link = styled.a`
   border-radius: 2em;
   padding: 0.5em 1.5em;
   /* transform: translateY(1.5em); */
-  margin-top: 1.5em;
+  /* margin-top: 1.5em; */
   text-decoration: none;
   color: ${colors.grayishViolet};
   font-weight: 700;
   width: fit-content;
   :hover {
     cursor: pointer;
-    color: ${colors.veryDarkViolet};
-    -webkit-filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    -moz-filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    -o-filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    -ms-filter: brightness(0.9) saturate(0.8) contrast(0.9);
-    filter: brightness(0.9) saturate(0.8) contrast(0.9);
     transition: all 400ms ease-out;
+  }
+`;
+
+export const WhiteHover = styled.span`
+  background-color: red;
+  margin-top: 1.5em;
+  width: fit-content;
+  border-radius: 2em;
+  :hover {
+    background-color: white;
+    opacity: 50%;
+    /* transition: all 400ms ease-out; */
   }
 `;
 
