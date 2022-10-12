@@ -145,5 +145,6 @@ export const LinkBottom = styled(Link)`
 
   :hover {
     opacity: 50%;
+    cursor: pointer;
   }
 `;
