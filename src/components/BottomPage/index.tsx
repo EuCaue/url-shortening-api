@@ -59,7 +59,7 @@ export default function BottomPage() {
       <DivImage>
         <H1Boost>Boost your links today</H1Boost>
         <WhiteHover>
-          <LinkBottom>Get Started</LinkBottom>
+          <LinkBottom href="#">Get Started</LinkBottom>
         </WhiteHover>
       </DivImage>
     </>
