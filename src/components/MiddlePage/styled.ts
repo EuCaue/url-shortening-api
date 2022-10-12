@@ -48,21 +48,16 @@ export const Link = styled.a`
   color: ${colors.grayishViolet};
   font-weight: 700;
   width: fit-content;
-  :hover {
-    cursor: pointer;
-    transition: all 400ms ease-out;
-  }
 `;
 
 export const WhiteHover = styled.span`
-  background-color: red;
   margin-top: 1.5em;
   width: fit-content;
   border-radius: 2em;
   :hover {
     background-color: white;
     opacity: 50%;
-    /* transition: all 400ms ease-out; */
+    transition: all 400ms ease-out;
   }
 `;
 

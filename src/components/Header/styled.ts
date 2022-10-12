@@ -53,6 +53,6 @@ export const WhiteHover = styled.span`
   :hover {
     background-color: white;
     opacity: 50%;
-    /* transition: all 400ms ease-out; */
+    transition: all 400ms ease-out;
   }
 `;
