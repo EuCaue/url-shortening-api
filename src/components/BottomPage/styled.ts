@@ -20,6 +20,7 @@ export const WhiteHover = styled.span`
 
 export const BlueLine = styled.div`
   position: absolute;
+
   z-index: -1;
 `;
 
@@ -37,8 +38,8 @@ export const Container = styled.section`
       width: 3.2em;
       border-style: solid;
       border-color: ${colors.cyan};
-      bottom: 6em;
-      left: 27.5em;
+      margin-top: 8em;
+      margin-left: 19.2em;
     }
 
     p {
@@ -51,12 +52,16 @@ export const Container = styled.section`
       width: 2.2em;
       border: solid;
       border-color: ${colors.cyan};
-      bottom: 6em;
-      left: 48.5em;
+      margin-top: 5.5em;
+      /* left: 48.5em; */
+      margin-left: 19.2em;
       z-index: -1;
     }
     span {
       top: 4.5em;
+    }
+    p {
+      width: 102%;
     }
   }
 
@@ -129,15 +134,14 @@ export const DivImage = styled.div`
   text-align: center;
   align-items: center;
   height: 13.2em;
-  width: 80em;
+  /* width: 80em; */
   background-image: url(${boostDesktop});
-  background-repeat: no-repeat;
-  background-position: 100%;
+  background-repeat: space;
+  background-position: center;
   background-color: ${colors.darkViolet};
 `;
 
 export const LinkBottom = styled(Link)`
-  /* margin-right: 1em; */
   border-radius: 2em;
   margin-top: 0;
   font-size: 1.4em;
