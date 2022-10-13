@@ -135,7 +135,7 @@ export const DivImage = styled.div`
   text-align: center;
   align-items: center;
   height: 13.2em;
-  width: 80em;
+  /* width: 100%; */
   background-image: url(${boostDesktop});
   background-repeat: no-repeat;
   background-position: center;

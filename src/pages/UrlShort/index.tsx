@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import MiddlePage from '../../components/MiddlePage';
 import ShortForm from '../../components/ShortForm';
 import BottomPage from '../../components/BottomPage';
+import Footer from '../../components/Footer';
 import { Container } from './styled';
 
 export default function UrlShort() {
@@ -17,6 +18,7 @@ export default function UrlShort() {
           <BottomPage />
         </Container>
       </main>
+      <Footer />
     </>
   );
 }
