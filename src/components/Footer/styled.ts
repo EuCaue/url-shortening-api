@@ -18,6 +18,12 @@ export const FooterContainer = styled.footer`
   }
 `;
 
+export const SVG = styled.path`
+  :hover {
+    fill: ${colors.cyan};
+  }
+`;
+
 export const ShortlyLogo = styled.span`
   position: absolute;
   top: 6em;
@@ -65,16 +71,21 @@ export const FlexIcons = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin-left: 4em;
-
-  img {
-    width: fit-content;
-    height: fit-content;
-    border-radius: 5px;
+  svg {
     margin-bottom: 5em;
-    fill: black;
-    margin-left: 1em;
+    margin-left: 2em;
+  }
+
+  a {
+    height: 0%;
+    width: 0%;
+    background-color: red;
     :hover {
-      background-color: ${colors.cyan};
+      svg {
+        path {
+          fill: ${colors.cyan};
+        }
+      }
     }
   }
 `;
