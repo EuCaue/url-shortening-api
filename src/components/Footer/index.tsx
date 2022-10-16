@@ -8,13 +8,8 @@ import {
   LinkLi,
   H1,
   FlexIcons,
-  SVG,
 } from './styled';
 import Icon from '../../assets/styles/ShortlyWhiteSVG';
-import iconFacebook from '../../assets/images/icon-facebook.svg';
-import iconTwitter from '../../assets/images/icon-twitter.svg';
-import iconPinterest from '../../assets/images/icon-pinterest.svg';
-import iconInstagram from '../../assets/images/icon-instagram.svg';
 
 interface ListProps {
   H1?: string;

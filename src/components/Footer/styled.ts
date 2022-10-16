@@ -18,12 +18,6 @@ export const FooterContainer = styled.footer`
   }
 `;
 
-export const SVG = styled.path`
-  :hover {
-    fill: ${colors.cyan};
-  }
-`;
-
 export const ShortlyLogo = styled.span`
   position: absolute;
   top: 6em;
@@ -71,15 +65,17 @@ export const FlexIcons = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin-left: 4em;
+  margin-bottom: 5em;
+
   svg {
-    margin-bottom: 5em;
+    display: flex;
     margin-left: 2em;
   }
 
   a {
+    -web
     height: 0%;
     width: 0%;
-    background-color: red;
     :hover {
       svg {
         path {

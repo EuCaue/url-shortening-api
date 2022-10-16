@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-use-before-define */
 import axios from 'axios';
+//  Global Imports
+
 import React, {
   ChangeEvent,
   FormEvent,
@@ -10,6 +12,7 @@ import React, {
   useEffect,
 } from 'react';
 
+// Local imports
 import {
   Form,
   InputBox,
@@ -27,6 +30,7 @@ import {
 } from './styled';
 
 export default function ShortForm() {
+  // interface for the get on the API
   interface ShortAPI {
     result: {
       code: string;
@@ -34,9 +38,10 @@ export default function ShortForm() {
       original_link: string;
     };
   }
-
+  // useStates
   const [urlParams, setUrlParams] = useState<string>('');
   const [shortLink, setShortLink] = useState<string>('');
+  // apiCode from the API, for control.
   const [apiCode, setApiCode] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
@@ -48,19 +53,14 @@ export default function ShortForm() {
     },
   });
   const [originalLink, setOriginalLink] = useState<string>('');
+  // array from ResponseAPI components
   const [responseApi, SetResponseApi] = useState<JSX.Element[]>([
     <ResponseAPi />,
   ]);
   const baseAPI = 'https://api.shrtco.de/v2/shorten?url=';
   let copyLink = false;
-  const responseApiMap = useCallback(
-    (): JSX.Element[] =>
-      responseApi.map(
-        (api, index): JSX.Element => <div key={index}>{api}</div>,
-      ),
-    [responseApi],
-  );
 
+  // HandleSubmit Function.
   const handleSubmit = async (event?: FormEvent): Promise<void> => {
     event?.preventDefault();
     if (urlParams === '') {
@@ -70,19 +70,23 @@ export default function ShortForm() {
     await handleAPI();
   };
 
-  const copyShortLink = async (): Promise<void> => {
+  // Handle the API request.
+  const handleAPI = async (): Promise<void> => {
     try {
-      await navigator.clipboard.writeText(shortLink);
-      setCopied(true);
-      copyLink = true;
-      console.log(copyLink);
+      // eslint-disable-next-line no-shadow
+      const { data } = await axios.get<ShortAPI>(`${baseAPI}${urlParams}`);
+      setData(data);
+      setApiCode(data.result.code);
+      setOriginalLink(data.result.original_link);
+      setShortLink(data.result.full_short_link);
+      setError(false);
     } catch (err) {
-      copyLink = false;
-      setCopied(false);
-      console.error(err);
+      setError(true);
+      console.log(err, 'handleSubmit Catch err');
     }
   };
 
+  // ResponseAPI Component.
   function ResponseAPi(): JSX.Element {
     return apiCode ? (
       <ShortLink>
@@ -103,26 +107,35 @@ export default function ShortForm() {
       <></>
     );
   }
+  // Function for copyButton.
+  const copyShortLink = async (): Promise<void> => {
+    try {
+      await navigator.clipboard.writeText(shortLink);
+      setCopied(true);
+      copyLink = true;
+      console.log(copyLink);
+    } catch (err) {
+      copyLink = false;
+      setCopied(false);
+      console.error(err);
+    }
+  };
 
+  // callBack for save the map off responseApi[]
+  const responseApiMap = useCallback(
+    (): JSX.Element[] =>
+      responseApi.map(
+        (api, index): JSX.Element => <div key={index}>{api}</div>,
+      ),
+    [responseApi],
+  );
+
+  // Enter Key handler
   const handleKeypress = (event: KeyboardEvent): void => {
     if (event.code === '13') handleSubmit();
   };
 
-  const handleAPI = async (): Promise<void> => {
-    try {
-      // eslint-disable-next-line no-shadow
-      const { data } = await axios.get<ShortAPI>(`${baseAPI}${urlParams}`);
-      setData(data);
-      setApiCode(data.result.code);
-      setOriginalLink(data.result.original_link);
-      setShortLink(data.result.full_short_link);
-      setError(false);
-    } catch (err) {
-      setError(true);
-      console.log(err, 'handleSubmit Catch err');
-    }
-  };
-
+  // Update the Response components
   useEffect(() => {
     if (apiCode) {
       handleSubmit();
@@ -154,11 +167,11 @@ export default function ShortForm() {
             <Small error={error}>{error ? 'Please add a link' : ''}</Small>
           </Span>
         </Form>
-
+        {/* Refresh the map, on copy */}
         {copied === true ? responseApiMap() : responseApi}
         <H1>Advanced Statistics</H1>
         <P>
-          Track how your links are perfoming across the web with our advanced
+          Track how your links are performing across the web with our advanced
           statistics dashboard.
         </P>
       </Container>
