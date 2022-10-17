@@ -66,7 +66,7 @@ export default function Header() {
         <img src={logo} width="110" alt="Shortly" />
         <TbMenuStyled
           size={35}
-          color="gray"
+          color={navMobile ? 'black' : 'gray'}
           onClick={() => {
             if (navMobile) return setNavMobile(false);
             return setNavMobile(true);
