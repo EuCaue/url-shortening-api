@@ -22,7 +22,6 @@ export default function Header() {
     li4: string;
     li5: string;
   }
-
   const [navMobile, setNavMobile] = useState<boolean>(false);
 
   const Menu = (props: PropsUl): JSX.Element => {
@@ -31,7 +30,6 @@ export default function Header() {
         <li>
           <a href="#">{props.li1}</a>
         </li>
-
         <li>
           <a href="#">{props.li2}</a>
         </li>
@@ -48,9 +46,6 @@ export default function Header() {
       </UlMobile>
     );
   };
-
-  console.log(navMobile);
-
   return (
     <Container>
       <NavBar>

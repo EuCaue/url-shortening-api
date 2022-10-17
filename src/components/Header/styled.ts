@@ -104,6 +104,8 @@ export const GrayLine = styled.span`
   opacity: 20%;
   width: 15em;
   height: 0.01em;
+  transition: none;
+  animation: none;
 `;
 
 export const SignUpMobile = styled(SignUp)`
@@ -118,7 +120,7 @@ export const Container = styled.div`
   justify-content: space-between;
   margin: auto;
 
-  @media screen and (max-width: 49em) and (min-width: 40em) {
+  /* @media screen and (max-device-width: 49em) and (min-device-width: 40em) {
     ${NavBarMobile} {
       display: flex;
       gap: 14em;
@@ -139,7 +141,7 @@ export const Container = styled.div`
     ${NavBarMobile} {
       display: flex;
       gap: 13em;
-      margin-left: 1.5em;
+        margin-left: 1.5em;
       margin-right: 1.5em;
       padding-top: 2em;
     }
@@ -156,18 +158,28 @@ export const Container = styled.div`
     ${NavBar} {
       display: none;
     }
-  }
+  } */
 
-  @media screen and (max-width: 29em) and (min-width: 20em) {
+  @media screen and (max-width: 60em) and (min-width: 20em) {
     ${NavBarMobile} {
-      gap: 10.3em;
+      gap: calc(10em + 2vmax);
       display: flex;
       padding-top: 2em;
       margin-left: 1.5em;
       margin-right: 1.5em;
     }
+
+    ${UlMobile} {
+      margin-left: auto;
+    }
+
     ${NavBar} {
       display: none;
+    }
+    ${GrayLine} {
+      opacity: 100%;
+      position: absolute;
+      top: 12.3em;
     }
   }
 
