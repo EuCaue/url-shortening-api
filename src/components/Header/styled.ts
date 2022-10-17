@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 
+import { TbMenu2 } from 'react-icons/tb';
 import * as colors from '../../assets/styles/configColors/colors';
 
 interface ShowNavMobile {
@@ -32,14 +33,11 @@ export const WhiteHover = styled.span`
 `;
 
 export const NavBar = styled.nav`
-  /* visibility: visible; */
   display: flex;
   justify-content: space-around;
   align-items: center;
   text-align: center;
   margin: auto;
-  /* width: 85.7%; */
-  /* width: 100%; */
   width: 65em;
   margin-top: 1.2em;
 
@@ -80,6 +78,7 @@ export const UlMobile = styled.ul<ShowNavMobile>`
   height: 22em;
   border-radius: 12px;
   top: 5em;
+  left: calc(1vh);
   background-color: ${colors.darkViolet};
   animation: box 500ms linear;
   a {
@@ -101,7 +100,7 @@ export const GrayLine = styled.span`
   background-color: ${colors.grayishViolet};
   position: absolute;
   top: 12.5em;
-  opacity: 20%;
+  opacity: 50%;
   width: 15em;
   height: 0.01em;
   transition: none;
@@ -114,88 +113,51 @@ export const SignUpMobile = styled(SignUp)`
   text-align: center;
 `;
 
+export const TbMenuStyled = styled(TbMenu2)`
+  position: absolute;
+  left: calc(84vw);
+`;
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: auto;
+  position: relative;
 
-  /* @media screen and (max-device-width: 49em) and (min-device-width: 40em) {
-    ${NavBarMobile} {
-      display: flex;
-      gap: 14em;
-      margin-left: 1.5em;
-      margin-right: 1.5em;
-      padding-top: 2em;
-    }
-
-    ${UlMobile} {
-      margin-left: 3.7em;
-    }
-
-    ${NavBar} {
-      display: none;
-    }
-  }
-  @media screen and (min-width: 30em) and (max-width: 39em) {
-    ${NavBarMobile} {
-      display: flex;
-      gap: 13em;
-        margin-left: 1.5em;
-      margin-right: 1.5em;
-      padding-top: 2em;
-    }
-    ${UlMobile} {
-      margin-left: 2em;
-    }
-
-    ${GrayLine} {
-      opacity: 65%;
-      position: absolute;
-      top: 12em;
-    }
-
-    ${NavBar} {
-      display: none;
-    }
-  } */
-
+  /* Media query */
   @media screen and (max-width: 60em) and (min-width: 20em) {
     ${NavBarMobile} {
-      gap: calc(10em + 2vmax);
       display: flex;
       padding-top: 2em;
-      margin-left: 1.5em;
-      margin-right: 1.5em;
+      margin-left: 1em;
     }
 
     ${UlMobile} {
-      margin-left: auto;
     }
 
     ${NavBar} {
       display: none;
     }
     ${GrayLine} {
-      opacity: 100%;
+      opacity: 50%;
       position: absolute;
       top: 12.3em;
     }
-  }
+    @keyframes box {
+      from {
+        top: 1.5em;
+      }
+      25% {
+        top: 2.5em;
+      }
 
-  @keyframes box {
-    from {
-      top: 1.5em;
-    }
-    25% {
-      top: 2.5em;
-    }
-
-    50% {
-      top: 3.5em;
-    }
-    to {
-      top: 5em;
+      50% {
+        top: 3.5em;
+      }
+      to {
+        top: 5em;
+      }
     }
   }
 `;

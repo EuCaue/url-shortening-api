@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-
-import { TbMenu2 } from 'react-icons/tb';
 import {
   Container,
   NavBar,
@@ -11,6 +9,7 @@ import {
   UlMobile,
   SignUpMobile,
   GrayLine,
+  TbMenuStyled,
 } from './styled';
 import logo from '../../assets/images/logo.svg';
 
@@ -65,7 +64,7 @@ export default function Header() {
 
       <NavBarMobile navMobile={navMobile}>
         <img src={logo} width="110" alt="Shortly" />
-        <TbMenu2
+        <TbMenuStyled
           size={35}
           color="gray"
           onClick={() => {
