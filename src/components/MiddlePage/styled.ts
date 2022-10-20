@@ -4,10 +4,9 @@ import styled from 'styled-components';
 import * as colors from '../../assets/styles/configColors/colors';
 
 export const Img = styled.img`
-  /* display: inline-block !important; */
   align-items: center;
   justify-content: center;
-  transform: scale(0.9);
+  /* transform: scale(0.9); */
   margin-left: 12em;
   margin-top: 2em;
 `;
@@ -17,7 +16,6 @@ export const H1 = styled.h1`
   align-items: center;
   justify-content: center;
   font-size: 3.5rem;
-  /* letter-spacing: -1px; */
   /* width: 90%; */
   width: 7.39em;
   color: ${colors.veryDarkBlue};
@@ -42,8 +40,6 @@ export const Link = styled.a`
   color: #fff !important;
   border-radius: 2em;
   padding: 0.5em 1.5em;
-  /* transform: translateY(1.5em); */
-  /* margin-top: 1.5em; */
   text-decoration: none;
   color: ${colors.grayishViolet};
   font-weight: 700;
@@ -56,21 +52,47 @@ export const WhiteHover = styled.span`
   border-radius: 2em;
   :hover {
     background-color: white;
-    opacity: 50%;
     transition: all 400ms ease-out;
+    opacity: 50%;
   }
+`;
+export const Span = styled.span`
+  display: flex;
+  flex-direction: column;
+  margin-left: 15em;
 `;
 
 export const Container = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* transform: translateY(3.2em); */
-`;
+  @media screen and (max-width: 60em) and (min-width: 20em) {
+    flex-direction: column-reverse;
+    ${Img} {
+      margin-left: 10em;
+      /* margin-top: 1em; */
+      /* margin-right: 29.5em; */
+      width: 29em;
+    }
+    ${H1} {
+      /* width: 7.25em; */
+      font-size: 2.2rem;
+      margin-right: 7em;
+      text-align: center;
+      padding-top: 1em;
+    }
 
-export const Span = styled.span`
-  display: flex;
-  flex-direction: column;
-  /* transform: translateX(1.5em); */
-  margin-left: 15em;
+    ${H2} {
+      width: 19em;
+      text-align: center;
+      margin-left: -1em;
+      font-size: 1rem;
+    }
+
+    ${Link} {
+      margin-left: 2.5em;
+      width: 12em;
+      height: 3em;
+    }
+  }
 `;

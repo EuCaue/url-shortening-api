@@ -10,7 +10,6 @@ export const FooterContainer = styled.footer`
   padding-top: 4em;
   padding-bottom: 4em;
   position: relative;
-
   ul:nth-child(4) {
     h1 {
       margin-top: 2em;
@@ -73,7 +72,6 @@ export const FlexIcons = styled.div`
   }
 
   a {
-    -web
     height: 0%;
     width: 0%;
     :hover {

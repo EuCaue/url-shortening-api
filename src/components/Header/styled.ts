@@ -73,12 +73,12 @@ export const UlMobile = styled.ul<ShowNavMobile>`
   justify-content: center;
   text-align: center;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   width: 18em;
   height: 22em;
   border-radius: 12px;
   top: 5em;
-  left: calc(1vh);
+  left: calc(4vh);
   background-color: ${colors.darkViolet};
   animation: box 500ms linear;
   a {
