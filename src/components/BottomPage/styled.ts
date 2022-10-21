@@ -53,7 +53,6 @@ export const Container = styled.section`
       border: solid;
       border-color: ${colors.cyan};
       margin-top: 5.5em;
-      /* left: 48.5em; */
       margin-left: 19.2em;
       z-index: -1;
     }
@@ -135,7 +134,6 @@ export const DivImage = styled.div`
   text-align: center;
   align-items: center;
   height: 13.2em;
-  /* width: 100%; */
   background-image: url(${boostDesktop});
   background-repeat: no-repeat;
   background-position: center;

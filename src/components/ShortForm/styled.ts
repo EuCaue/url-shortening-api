@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import * as colors from '../../assets/styles/configColors/colors';
 import ImgBoost from '../../assets/images/bg-shorten-desktop.svg';
+import ImgShortenMobile from '../../assets/images/bg-shorten-mobile.svg';
 
 type Props = {
   error: boolean;
@@ -44,7 +45,7 @@ export const SubmitButton = styled.button<Props>`
 `;
 
 export const InputBox = styled.input<Props>`
-  display: inline-flex;
+  display: flex;
   position: relative;
   outline: none;
   align-items: center;
@@ -71,13 +72,7 @@ export const InputBox = styled.input<Props>`
 export const Small = styled.small<Props>`
   flex: 0;
   flex-basis: 100%;
-  flex-shrink: 100%;
-  left: 8.7em;
-  left: 8%;
-  bottom: -3em;
-  bottom: -16%;
   font-size: 0.7em;
-  visibility: visible;
   content: 'Please add a link';
   margin-left: 4.5em;
   color: ${colors.red};
@@ -104,17 +99,6 @@ export const Form = styled.form`
   margin-right: 3.5em;
   width: 60em;
   height: 7em;
-`;
-
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  /* background-color: lightgray; */
-
-  z-index: 0;
-  height: 100%;
 `;
 
 export const ShortLink = styled.div`
@@ -175,4 +159,56 @@ export const P = styled.p`
   text-align: center;
   color: gray;
   width: 29em;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 0;
+  height: 100%;
+
+  @media screen and (max-width: 60em) and (min-width: 20em) {
+    margin-top: 4.5em;
+    ${Form} {
+      background-image: url(${ImgShortenMobile});
+      background-repeat: no-repeat;
+      background-position: top right;
+      width: 90%;
+      margin: auto;
+      height: 11em;
+      border-radius: 10px;
+    }
+
+    ${Span} {
+      flex-direction: column;
+    }
+
+    ${InputBox} {
+      width: 85%;
+      /* height: 2.5em; */
+      margin-bottom: 2.5em;
+      ::placeholder {
+        font-weight: 500;
+        opacity: 50%;
+      }
+    }
+    ${SubmitButton} {
+      width: 94%;
+      text-align: center;
+      margin-right: 8.9em;
+      margin-bottom: 1em;
+    }
+    ${Small} {
+      /* flex: 0; */
+      /* flex-shrink: 50%; */
+      /* flex-basis: 50%; */
+      /* flex-wrap: nowrap; */
+      margin-left: 0;
+      position: absolute !important;
+      left: 15%;
+      top: 100%;
+    }
+  }
 `;
