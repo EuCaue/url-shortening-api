@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+// TODO: clear the unused props
 import styled from 'styled-components';
 
 import * as colors from '../../assets/styles/configColors/colors';
@@ -34,7 +35,6 @@ export const SubmitButton = styled.button<Props>`
   border-radius: 5px;
   height: 3em;
   padding: 1em 1.5em;
-  /* margin-left: 1.2em; */
   font-weight: 700;
   :hover {
     cursor: pointer;
@@ -46,7 +46,7 @@ export const SubmitButton = styled.button<Props>`
 
 export const InputBox = styled.input<Props>`
   display: flex;
-  position: relative;
+
   outline: none;
   align-items: center;
   justify-content: center;
@@ -57,7 +57,7 @@ export const InputBox = styled.input<Props>`
   border-color: ${colors.red};
   ::placeholder {
     color: ${(props) =>
-      props.error === false ? `current/* Co */lor` : `${colors.red}`};
+      props.error === false ? `currentColor` : `${colors.red}`};
     padding: 1.5em;
     font-size: 16px;
   }
@@ -82,6 +82,8 @@ export const Small = styled.small<Props>`
 export const Span = styled.span<Props>`
   display: flex;
   align-items: center;
+
+  position: relative;
   flex-wrap: wrap;
   justify-content: center;
   padding-top: ${(props) => (props.error === false ? '0' : '1.3em')};
@@ -183,11 +185,11 @@ export const Container = styled.div`
 
     ${Span} {
       flex-direction: column;
+      padding-top: 1.3em;
     }
 
     ${InputBox} {
       width: 85%;
-      /* height: 2.5em; */
       margin-bottom: 2.5em;
       ::placeholder {
         font-weight: 500;
@@ -199,16 +201,23 @@ export const Container = styled.div`
       text-align: center;
       margin-right: 8.9em;
       margin-bottom: 1em;
+
+      :hover {
+        opacity: 100%;
+      }
+    }
+
+    ${WhiteHover} {
+      :hover {
+        opacity: 100%;
+        background-color: initial;
+      }
     }
     ${Small} {
-      /* flex: 0; */
-      /* flex-shrink: 50%; */
-      /* flex-basis: 50%; */
-      /* flex-wrap: nowrap; */
       margin-left: 0;
       position: absolute !important;
-      left: 15%;
-      top: 100%;
+      left: 12%;
+      top: 40%;
     }
   }
 `;
