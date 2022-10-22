@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-use-before-define */
 import axios from 'axios';
@@ -158,13 +159,12 @@ export default function ShortForm() {
             <WhiteHover>
               <SubmitButton
                 type="submit"
-                error={error}
                 onKeyPress={(e): void => handleKeypress(e)}
               >
                 Shorten It!
               </SubmitButton>
             </WhiteHover>
-            <Small error={error}>{error ? 'Please add a link' : ''}</Small>
+            <Small>{error ? 'Please add a link' : ''}</Small>
           </Span>
         </Form>
         {/* Refresh the map, on copy */}

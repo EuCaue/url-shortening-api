@@ -16,7 +16,6 @@ type CopyLink = {
 
 export const WhiteHover = styled.span`
   z-index: 1;
-  /* width: 9.6em; */
   margin-left: 1.2em;
   border-radius: 5px;
   :hover {
@@ -25,7 +24,7 @@ export const WhiteHover = styled.span`
   }
 `;
 
-export const SubmitButton = styled.button<Props>`
+export const SubmitButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,7 +45,6 @@ export const SubmitButton = styled.button<Props>`
 
 export const InputBox = styled.input<Props>`
   display: flex;
-
   outline: none;
   align-items: center;
   justify-content: center;
@@ -69,7 +67,7 @@ export const InputBox = styled.input<Props>`
   }
 `;
 
-export const Small = styled.small<Props>`
+export const Small = styled.small`
   flex: 0;
   flex-basis: 100%;
   font-size: 0.7em;
@@ -82,7 +80,6 @@ export const Small = styled.small<Props>`
 export const Span = styled.span<Props>`
   display: flex;
   align-items: center;
-
   position: relative;
   flex-wrap: wrap;
   justify-content: center;
@@ -196,6 +193,7 @@ export const Container = styled.div`
         opacity: 50%;
       }
     }
+
     ${SubmitButton} {
       width: 94%;
       text-align: center;
@@ -208,6 +206,7 @@ export const Container = styled.div`
     }
 
     ${WhiteHover} {
+      width: 90%;
       :hover {
         opacity: 100%;
         background-color: initial;
@@ -216,7 +215,8 @@ export const Container = styled.div`
     ${Small} {
       margin-left: 0;
       position: absolute !important;
-      left: 12%;
+      left: 8%;
+      margin-top: 0.6em;
       top: 40%;
     }
   }
