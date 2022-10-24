@@ -86,6 +86,13 @@ export const Span = styled.span<Props>`
   padding-top: ${(props) => (props.error === false ? '0' : '1.3em')};
 `;
 
+export const SpanCopyLink = styled.span`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
 export const Form = styled.form`
   background-image: url(${ImgBoost});
   background-color: ${colors.darkViolet};
@@ -118,6 +125,7 @@ export const ShortenLink = styled.a`
   justify-content: center;
   align-items: center;
   margin-right: 1em;
+  font-weight: 500;
   color: ${colors.cyan};
 `;
 
@@ -125,6 +133,7 @@ export const OriginalLink = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 500;
   text-decoration: none;
   color: ${colors.veryDarkViolet};
   :hover {
@@ -159,6 +168,8 @@ export const P = styled.p`
   color: gray;
   width: 29em;
 `;
+
+export const GrayLine = styled.span``;
 
 export const Container = styled.div`
   display: flex;
@@ -199,7 +210,6 @@ export const Container = styled.div`
       text-align: center;
       margin-right: 8.9em;
       margin-bottom: 1em;
-
       :hover {
         opacity: 100%;
       }
@@ -212,12 +222,60 @@ export const Container = styled.div`
         background-color: initial;
       }
     }
+
     ${Small} {
       margin-left: 0;
       position: absolute !important;
       left: 8%;
       margin-top: 0.6em;
       top: 40%;
+    }
+
+    ${ShortLink} {
+      flex-direction: column;
+      width: 90%;
+      justify-content: left;
+      align-items: left;
+      flex-wrap: wrap;
+      height: 100%;
+      margin: 0;
+      padding: 1em;
+      margin-top: 1em;
+    }
+
+    ${SpanCopyLink} {
+      width: 100%;
+      justify-content: left;
+      text-align: left;
+      align-self: flex-start;
+      margin-top: 1em;
+      margin-right: 2em;
+    }
+
+    ${OriginalLink} {
+      display: flex;
+      align-self: flex-start;
+      margin-left: 0;
+      margin-right: 5em;
+    }
+
+    ${ShortenLink} {
+      margin: 0;
+    }
+
+    ${CopyButton} {
+      padding: 1.3em 2em;
+      margin: 0;
+      margin-top: 1em;
+      width: 120%;
+    }
+
+    ${GrayLine} {
+      background-color: ${colors.gray};
+      width: 100%;
+      height: 0.1em;
+      display: flex;
+      align-self: flex-start;
     }
   }
 `;

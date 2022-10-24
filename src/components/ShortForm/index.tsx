@@ -19,11 +19,13 @@ import {
   InputBox,
   SubmitButton,
   Span,
+  SpanCopyLink,
   Container,
   ShortLink,
   ShortenLink,
   CopyButton,
   OriginalLink,
+  GrayLine,
   Small,
   H1,
   P,
@@ -94,15 +96,17 @@ export default function ShortForm() {
         <OriginalLink href={originalLink} target="_blank">
           {originalLink}
         </OriginalLink>
-        <Span error={error}>
+        <GrayLine></GrayLine>
+        <SpanCopyLink>
           <ShortenLink href={shortLink} target="_blank">
             {shortLink}
           </ShortenLink>
-          <CopyButton onClick={copyShortLink} error={error} copyLink={copyLink}>
+
+          <CopyButton onClick={copyShortLink} copyLink={copyLink}>
             {copyLink === true ? 'Copied!' : 'Copy'}
             <>{setCopied(false)}</>
           </CopyButton>
-        </Span>
+        </SpanCopyLink>
       </ShortLink>
     ) : (
       <></>
