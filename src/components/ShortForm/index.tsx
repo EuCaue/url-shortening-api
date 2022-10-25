@@ -117,17 +117,9 @@ export default function ShortForm() {
   }
   // Function for copyButton.
   // BUG: make work on mobile
-  const copyShortLink = async (): Promise<void> => {
-    try {
-      // await navigator.clipboard.writeText(shortLink);
-      setCopied(true);
-      copyLink = true;
-      console.log(copyLink);
-    } catch (err) {
-      copyLink = false;
-      setCopied(false);
-      console.error(err);
-    }
+  const copyShortLink = (): void => {
+    setCopied(true);
+    copyLink = true;
   };
 
   // callBack for save the map off responseApi[]

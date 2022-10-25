@@ -1,6 +1,5 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
-
 import * as colors from '../../assets/styles/configColors/colors';
 import ImgBoost from '../../assets/images/bg-shorten-desktop.svg';
 import ImgShortenMobile from '../../assets/images/bg-shorten-mobile.svg';
@@ -116,6 +115,7 @@ export const ShortLink = styled.div`
   margin-right: 3.5em;
   z-index: 1;
   height: 3em;
+  position: relative;
   border-radius: 5px;
 `;
 
@@ -168,7 +168,9 @@ export const P = styled.p`
   width: 29em;
 `;
 
-export const GrayLine = styled.span``;
+export const GrayLine = styled.span`
+  position: relative;
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -271,10 +273,13 @@ export const Container = styled.div`
 
     ${GrayLine} {
       background-color: ${colors.gray};
-      width: 100%;
-      height: 0.01em;
+      width: clamp(min(100% + 4vmax), 106%, max(109% - 9vmax));
+      position: absoulte;
+      height: 0.05em;
+      right: 1em;
       display: flex;
-      align-self: flex-start;
+      margin-top: 0.5em;
+      align-self: normal;
     }
   }
 `;
