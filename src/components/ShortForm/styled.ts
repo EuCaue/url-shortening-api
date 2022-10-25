@@ -1,5 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-// TODO: clear the unused props
 import styled from 'styled-components';
 
 import * as colors from '../../assets/styles/configColors/colors';
@@ -273,7 +272,7 @@ export const Container = styled.div`
     ${GrayLine} {
       background-color: ${colors.gray};
       width: 100%;
-      height: 0.1em;
+      height: 0.01em;
       display: flex;
       align-self: flex-start;
     }

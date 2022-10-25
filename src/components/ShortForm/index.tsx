@@ -14,6 +14,7 @@ import React, {
 } from 'react';
 
 // Local imports
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import {
   Form,
   InputBox,
@@ -102,10 +103,12 @@ export default function ShortForm() {
             {shortLink}
           </ShortenLink>
 
-          <CopyButton onClick={copyShortLink} copyLink={copyLink}>
-            {copyLink === true ? 'Copied!' : 'Copy'}
-            <>{setCopied(false)}</>
-          </CopyButton>
+          <CopyToClipboard text={shortLink}>
+            <CopyButton onClick={copyShortLink} copyLink={copyLink}>
+              {copyLink === true ? 'Copied!' : 'Copy'}
+              <>{setCopied(false)}</>
+            </CopyButton>
+          </CopyToClipboard>
         </SpanCopyLink>
       </ShortLink>
     ) : (
@@ -113,9 +116,10 @@ export default function ShortForm() {
     );
   }
   // Function for copyButton.
+  // BUG: make work on mobile
   const copyShortLink = async (): Promise<void> => {
     try {
-      await navigator.clipboard.writeText(shortLink);
+      // await navigator.clipboard.writeText(shortLink);
       setCopied(true);
       copyLink = true;
       console.log(copyLink);
@@ -154,6 +158,7 @@ export default function ShortForm() {
         <Form onSubmit={(e) => handleSubmit(e)}>
           <Span error={error}>
             <InputBox
+              autoFocus
               placeholder="Shorten a link here..."
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 setUrlParams(e.target.value);
