@@ -2,6 +2,7 @@ import React from 'react';
 
 import {
   Container,
+  ContainerFlex,
   Background,
   BlueLine,
   IconSVG,
@@ -35,8 +36,8 @@ const BoxWithIcon = (props: BoxIcon): JSX.Element => {
 
 export default function BottomPage() {
   return (
-    <>
-      <Container>
+    <Container>
+      <ContainerFlex>
         <BoxWithIcon
           icon={iconBrand}
           h1="Brand Recognition"
@@ -55,13 +56,13 @@ export default function BottomPage() {
 		Improve brand awareness and content discoverability through customizable links, supercharging audiencia engagement.
 		"
         />
-      </Container>
+      </ContainerFlex>
       <DivImage>
         <H1Boost>Boost your links today</H1Boost>
         <WhiteHover>
           <LinkBottom href="#">Get Started</LinkBottom>
         </WhiteHover>
       </DivImage>
-    </>
+    </Container>
   );
 }

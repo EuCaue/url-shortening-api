@@ -24,7 +24,7 @@ export const BlueLine = styled.div`
   z-index: -1;
 `;
 
-export const Container = styled.section`
+export const ContainerFlex = styled.section`
   display: flex;
   align-items: center;
   z-index: 3;
@@ -91,6 +91,7 @@ export const IconSVG = styled.span<Icon>`
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 50%;
+  display: flex;
   width: 4.5em;
   height: 4.5em;
   position: absolute;
@@ -134,6 +135,7 @@ export const DivImage = styled.div`
   text-align: center;
   align-items: center;
   height: 13.2em;
+  width: 100%;
   background-image: url(${boostDesktop});
   background-repeat: no-repeat;
   background-position: center;
@@ -150,5 +152,66 @@ export const LinkBottom = styled(Link)`
     opacity: 50%;
     cursor: pointer;
     transition: all 400ms ease-out;
+  }
+`;
+
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* width: 100%; */
+  /* height: 100%; */
+  @media screen and (max-width: 60em) and (min-width: 20em) {
+    ${ContainerFlex} {
+      width: 90%;
+      flex-direction: column;
+    }
+    /* FIX: display !== none */
+    ${BlueLine} {
+      display: none;
+    }
+    ${IconSVG} {
+      /* left: 0; */
+      display: flex;
+      align-self: center;
+    }
+
+    ${Background} {
+      justify-content: center;
+      margin: 0;
+      /* width: 20em; */
+      /* margin-top: 4em; */
+    }
+    ${H1} {
+      text-align: center;
+      padding-top: 3.5em;
+    }
+    ${P} {
+      padding-left: 2em;
+      padding-right: 2em;
+      padding-bottom: 2.5em;
+      text-align: center;
+    }
+    div:nth-child(1) {
+      margin-top: 4em;
+    }
+    div:nth-child(2) {
+      display: flex;
+      span {
+        align-self: center;
+        top: 21em;
+      }
+    }
+    div:nth-child(3) {
+      span {
+        top: 45.5em;
+        align-self: center;
+      }
+      ${P} {
+        padding-right: 1em;
+        padding-left: 1em;
+      }
+    }
   }
 `;
