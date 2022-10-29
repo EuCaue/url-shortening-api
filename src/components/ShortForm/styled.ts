@@ -12,6 +12,7 @@ type CopyLink = {
   copyLink: boolean;
 };
 
+// NOTE: whitehover in the buttons
 export const WhiteHover = styled.span`
   z-index: 1;
   margin-left: 1.2em;
@@ -22,6 +23,7 @@ export const WhiteHover = styled.span`
   }
 `;
 
+// SubmitButton
 export const SubmitButton = styled.button`
   display: flex;
   align-items: center;
@@ -41,6 +43,7 @@ export const SubmitButton = styled.button`
   z-index: 3;
 `;
 
+// InputBox
 export const InputBox = styled.input<Props>`
   display: flex;
   outline: none;
@@ -51,6 +54,7 @@ export const InputBox = styled.input<Props>`
   border-radius: 5px;
   border: ${(props) => (props.error === false ? 'none' : 'solid')};
   border-color: ${colors.red};
+  /* NOTE: placeholder */
   ::placeholder {
     color: ${(props) =>
       props.error === false ? `currentColor` : `${colors.red}`};
@@ -63,8 +67,15 @@ export const InputBox = styled.input<Props>`
     padding: 1.5em;
     font-size: 16px;
   }
+  ::-webkit-input-placeholder {
+    color: ${(props) =>
+      props.error === false ? 'currentColor' : `${colors.red}`};
+    padding: 1.5em;
+    font-size: 16px;
+  }
 `;
 
+// NOTE: text with the link it's not valid
 export const Small = styled.small`
   flex: 0;
   flex-basis: 100%;
@@ -75,6 +86,7 @@ export const Small = styled.small`
   flex-wrap: wrap;
 `;
 
+// NOTE: span flex for the components inside of the form
 export const Span = styled.span<Props>`
   display: flex;
   align-items: center;
@@ -84,6 +96,7 @@ export const Span = styled.span<Props>`
   padding-top: ${(props) => (props.error === false ? '0' : '1.3em')};
 `;
 
+// span flex for the copylink
 export const SpanCopyLink = styled.span`
   display: flex;
   align-items: center;
@@ -91,6 +104,7 @@ export const SpanCopyLink = styled.span`
   justify-content: center;
 `;
 
+// Form
 export const Form = styled.form`
   background-image: url(${ImgBoost});
   background-color: ${colors.darkViolet};
@@ -105,6 +119,7 @@ export const Form = styled.form`
   height: 7em;
 `;
 
+// ResponseApi div
 export const ShortLink = styled.div`
   background-color: white;
   display: flex;
@@ -119,6 +134,7 @@ export const ShortLink = styled.div`
   border-radius: 5px;
 `;
 
+// box with the shorten link
 export const ShortenLink = styled.a`
   display: flex;
   justify-content: center;
@@ -128,6 +144,7 @@ export const ShortenLink = styled.a`
   color: ${colors.cyan};
 `;
 
+// box with the original link
 export const OriginalLink = styled.a`
   display: flex;
   justify-content: center;
@@ -141,6 +158,7 @@ export const OriginalLink = styled.a`
   margin-left: 1em;
 `;
 
+// copybutton
 export const CopyButton = styled(SubmitButton)<CopyLink>`
   display: flex;
   justify-content: center;
@@ -152,6 +170,7 @@ export const CopyButton = styled(SubmitButton)<CopyLink>`
     props.copyLink === true ? colors.darkViolet : colors.cyan};
 `;
 
+// h1 below the shortLink
 export const H1 = styled.h1`
   display: flex;
   align-items: center;
@@ -159,19 +178,22 @@ export const H1 = styled.h1`
   margin-top: 4.5em;
   text-align: center;
   color: ${colors.veryDarkViolet};
-  font-size: 1.8em;
+  font-size: 1.8rem;
 `;
 
 export const P = styled.p`
   text-align: center;
   color: gray;
   width: 29em;
+  font-weight: 500;
 `;
 
+// mobile grayline in the shortlink
 export const GrayLine = styled.span`
   position: relative;
 `;
 
+// Container && mediaquerie
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -274,12 +296,24 @@ export const Container = styled.div`
     ${GrayLine} {
       background-color: ${colors.gray};
       width: clamp(min(100% + 4vmax), 106%, max(109% - 9vmax));
-      position: absoulte;
+      position: absolute;
       height: 0.05em;
       right: 1em;
       display: flex;
       margin-top: 0.5em;
       align-self: normal;
+    }
+
+    ${H1} {
+      width: 90%;
+      margin-top: 2em;
+      font-size: 1.5rem;
+      padding-bottom: 1rem;
+    }
+    ${P} {
+      /* width: 90%; */
+      width: 20em;
+      font-size: 16px;
     }
   }
 `;

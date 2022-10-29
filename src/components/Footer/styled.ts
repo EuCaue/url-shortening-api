@@ -2,21 +2,6 @@
 import styled from 'styled-components';
 import * as colors from '../../assets/styles/configColors/colors';
 
-export const FooterContainer = styled.footer`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${colors.veryDarkViolet};
-  padding-top: 4em;
-  padding-bottom: 4em;
-  position: relative;
-  ul:nth-child(4) {
-    h1 {
-      margin-top: 2em;
-    }
-  }
-`;
-
 export const ShortlyLogo = styled.span`
   position: absolute;
   top: 6em;
@@ -38,14 +23,14 @@ export const Ul = styled.ul`
   }
 `;
 
-export const Li = styled.li``;
-
+// NOTE: h1 for the li's
 export const H1 = styled.h1`
   color: white;
   font-size: 0.9em;
   padding-bottom: 1em;
 `;
 
+// NOTE: anchor in the li's
 export const LinkLi = styled.a`
   text-decoration: none;
   color: ${colors.gray};
@@ -59,6 +44,7 @@ export const LinkLi = styled.a`
   }
 `;
 
+// NOTE: SVG below footer
 export const FlexIcons = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -66,19 +52,82 @@ export const FlexIcons = styled.div`
   margin-left: 4em;
   margin-bottom: 5em;
 
+  /* NOTE: spacing between svg's */
   svg {
     display: flex;
     margin-left: 2em;
   }
 
+  /* NOTE: make the svg blue */
   a {
-    height: 0%;
-    width: 0%;
+    height: 0;
+    width: auto;
     :hover {
       svg {
         path {
           fill: ${colors.cyan};
         }
+      }
+    }
+  }
+`;
+
+// NOTE: Container && Mediaquerie
+export const FooterContainer = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${colors.veryDarkViolet};
+  padding-top: 4em;
+  padding-bottom: 4em;
+  position: relative;
+  ul:nth-child(4) {
+    h1 {
+      margin-top: 2em;
+    }
+  }
+  @media screen and (max-width: 60em) and (min-width: 20em) {
+    flex-direction: column;
+
+    ul:nth-child(2) {
+      h1 {
+        padding-bottom: 1em;
+        padding-top: 2em;
+      }
+    }
+    ul:nth-child(3) {
+      h1 {
+        padding-top: 2em;
+      }
+    }
+
+    ${ShortlyLogo} {
+      margin: 0;
+      top: 0;
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
+
+    ${Ul} {
+      position: relative;
+      align-items: inherit;
+      margin-left: 0;
+      li {
+        margin-top: 0.5em;
+      }
+    }
+
+    ${FlexIcons} {
+      display: flex;
+      width: 50%;
+      margin: 0;
+      justify-content: center;
+      margin-top: 2em;
+      margin-left: 22vw;
+      align-self: flex-start;
+
+      svg {
+        margin-left: 1.5em;
       }
     }
   }

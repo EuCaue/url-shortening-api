@@ -8,10 +8,12 @@ interface ShowNavMobile {
   navMobile: boolean;
 }
 
+// blank space
 export const Divider = styled.div`
   width: 21em;
 `;
 
+// SignUp Button
 export const SignUp = styled.a`
   background-color: ${colors.cyan};
   border: none;
@@ -20,6 +22,7 @@ export const SignUp = styled.a`
   padding: 0.3em 1.5em;
 `;
 
+// NOTE: WhiteHover on buttons
 export const WhiteHover = styled.span`
   background-color: red;
   width: fit-content;
@@ -32,6 +35,7 @@ export const WhiteHover = styled.span`
   }
 `;
 
+// navBar
 export const NavBar = styled.nav`
   display: flex;
   justify-content: space-around;
@@ -50,6 +54,7 @@ export const NavBar = styled.nav`
       color: ${colors.veryDarkViolet};
       transition: all 400ms ease-out;
     }
+    /* HACK: login && signUp box */
     + div + span {
       width: 14em;
       display: flex;
@@ -73,12 +78,12 @@ export const UlMobile = styled.ul<ShowNavMobile>`
   justify-content: center;
   text-align: center;
   flex-direction: column;
-  position: fixed;
+  position: absolute;
   width: 18em;
   height: 22em;
   border-radius: 12px;
   top: 5em;
-  left: calc(4vh);
+
   background-color: ${colors.darkViolet};
   animation: box 500ms linear;
   a {
@@ -96,6 +101,7 @@ export const UlMobile = styled.ul<ShowNavMobile>`
   }
 `;
 
+// NOTE: grayline in menu
 export const GrayLine = styled.span`
   background-color: ${colors.grayishViolet};
   position: absolute;
@@ -107,17 +113,20 @@ export const GrayLine = styled.span`
   animation: none;
 `;
 
+// SignUpMobile Button
 export const SignUpMobile = styled(SignUp)`
   width: 15em;
   height: 2.3em;
   text-align: center;
 `;
 
+// Icon for the menu
 export const TbMenuStyled = styled(TbMenu2)`
   position: absolute;
   left: calc(84vw);
 `;
 
+// NOTE: mediaquerie && container
 export const Container = styled.div`
   display: flex;
   align-items: center;

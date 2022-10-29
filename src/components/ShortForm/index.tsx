@@ -116,7 +116,6 @@ export default function ShortForm() {
     );
   }
   // Function for copyButton.
-  // BUG: make work on mobile
   const copyShortLink = (): void => {
     setCopied(true);
     copyLink = true;

@@ -4,7 +4,6 @@ import {
   FooterContainer,
   ShortlyLogo,
   Ul,
-  Li,
   LinkLi,
   H1,
   FlexIcons,
@@ -27,30 +26,30 @@ const UlList = (props: ListProps) => {
           <H1>{props.H1}</H1>
         </li>
 
-        <Li>
+        <li>
           <LinkLi href="#" target="_self" rel="noopener noreferrer">
             {props.li1}
           </LinkLi>
-        </Li>
+        </li>
 
-        <Li>
+        <li>
           <LinkLi href="#" target="_self" rel="noopener noreferrer">
             {props.li2}
           </LinkLi>
-        </Li>
+        </li>
 
-        <Li>
+        <li>
           <LinkLi href="#" target="_self" rel="noopener noreferrer">
             {props.li3}
           </LinkLi>
-        </Li>
+        </li>
 
         {props.li4 ? (
-          <Li>
+          <li>
             <LinkLi href="#" target="_self" rel="noopener noreferrer">
               {props.li4}
             </LinkLi>
-          </Li>
+          </li>
         ) : (
           <></>
         )}

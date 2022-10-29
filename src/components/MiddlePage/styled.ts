@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 import * as colors from '../../assets/styles/configColors/colors';
 
+// IMG
 export const Img = styled.img`
   align-items: center;
   justify-content: center;
-  /* transform: scale(0.9); */
   margin-left: 12em;
   margin-top: 2em;
 `;
@@ -16,7 +16,6 @@ export const H1 = styled.h1`
   align-items: center;
   justify-content: center;
   font-size: 3.5rem;
-  /* width: 90%; */
   width: 7.39em;
   color: ${colors.veryDarkBlue};
 `;
@@ -25,12 +24,12 @@ export const H2 = styled.h2`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* width: 80%; */
   width: 25em;
   color: ${colors.grayishViolet};
   font-weight: 500;
 `;
 
+// "Get Started button"
 export const Link = styled.a`
   display: flex;
   align-items: center;
@@ -46,6 +45,7 @@ export const Link = styled.a`
   width: fit-content;
 `;
 
+// NOTE: whitehover in the button
 export const WhiteHover = styled.span`
   margin-top: 1.5em;
   width: fit-content;
@@ -56,12 +56,15 @@ export const WhiteHover = styled.span`
     opacity: 50%;
   }
 `;
+
+// NOTE: span flex
 export const Span = styled.span`
   display: flex;
   flex-direction: column;
   margin-left: 15em;
 `;
 
+// NOTE: Container && mediaqueries
 export const Container = styled.section`
   display: flex;
   align-items: center;
@@ -70,12 +73,9 @@ export const Container = styled.section`
     flex-direction: column-reverse;
     ${Img} {
       margin-left: 10em;
-      /* margin-top: 1em; */
-      /* margin-right: 29.5em; */
       width: 29em;
     }
     ${H1} {
-      /* width: 7.25em; */
       font-size: 2.2rem;
       margin-right: 7em;
       text-align: center;

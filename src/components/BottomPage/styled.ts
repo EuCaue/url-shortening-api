@@ -1,13 +1,13 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable import/prefer-default-export */
-import styled from 'styled-components';
-import * as colors from '../../assets/styles/configColors/colors';
-import boostDesktop from '../../assets/images/bg-boost-desktop.svg';
-import boostMobile from '../../assets/images/bg-boost-mobile.svg';
-import { Link } from '../MiddlePage/styled';
+import styled from 'styled-components'
+import * as colors from '../../assets/styles/configColors/colors'
+import boostDesktop from '../../assets/images/bg-boost-desktop.svg'
+import boostMobile from '../../assets/images/bg-boost-mobile.svg'
+import { Link } from '../MiddlePage/styled'
 
 interface Icon {
-  icon: string;
+  icon: string
 }
 
 // whitehover on buttons
@@ -19,7 +19,7 @@ export const WhiteHover = styled.span`
     background-color: white;
     opacity: 100%;
   }
-`;
+`
 
 // the blueline between the Background
 export const BlueLine = styled.div`
@@ -27,7 +27,7 @@ export const BlueLine = styled.div`
   position: absolute;
 
   z-index: -1;
-`; // Container Flex
+` // Container Flex
 export const ContainerFlex = styled.section`
   display: flex;
   align-items: center;
@@ -61,7 +61,7 @@ export const ContainerFlex = styled.section`
       margin-top: 5.5em;
       margin-left: 19.2em;
       z-index: -1;
-      }
+    }
 
     /* IconSVG */
     span {
@@ -76,12 +76,12 @@ export const ContainerFlex = styled.section`
   div:nth-child(3) {
     margin-top: 9em;
 
-      /* IconSVG */
+    /* IconSVG */
     span {
       top: 6.5em;
     }
   }
-`;
+`
 
 // Background div for boxWithIcon
 export const Background = styled.div`
@@ -95,7 +95,7 @@ export const Background = styled.div`
   height: 190%;
   flex-wrap: wrap;
   border-radius: 4px;
-`;
+`
 
 // IconSVG
 export const IconSVG = styled.span<Icon>`
@@ -110,7 +110,7 @@ export const IconSVG = styled.span<Icon>`
   position: absolute;
   margin-left: 1.6em;
   top: 2em;
-`;
+`
 
 // H1 below the IconSVG
 export const H1 = styled.h1`
@@ -121,7 +121,7 @@ export const H1 = styled.h1`
   font-weight: 700;
   font-size: 1.2em;
   justify-content: center;
-`;
+`
 
 // P below the IconSVG
 export const P = styled.p`
@@ -133,14 +133,14 @@ export const P = styled.p`
   padding-bottom: 1.7em;
   font-size: 0.9em;
   text-align: left;
-`;
+`
 
 // H1 for "Boost your links today"
 export const H1Boost = styled.h1`
   font-size: 2em;
   color: #fff;
   margin-right: 1em;
-`;
+`
 
 // Backoground div image
 export const DivImage = styled.div`
@@ -157,7 +157,7 @@ export const DivImage = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-color: ${colors.darkViolet};
-`;
+`
 
 // "Get Started button"
 export const LinkBottom = styled(Link)`
@@ -171,7 +171,7 @@ export const LinkBottom = styled(Link)`
     cursor: pointer;
     transition: all 400ms ease-out;
   }
-`;
+`
 
 // Container || MediaQueries
 export const Container = styled.div`
@@ -206,38 +206,38 @@ export const Container = styled.div`
       padding-right: 2em;
       padding-bottom: 2.5em;
       text-align: center;
-  }
+    }
 
-  /* First boxWithIcon */
+    /* First boxWithIcon */
     div:nth-child(1) {
       margin-top: 4em;
-    ${BlueLine} {
-      width: 0;
-      margin: 0;
-      margin-top: 18em;
-      height: 3.5em;
-      align-self: center;
+      ${BlueLine} {
+        width: 0;
+        margin: 0;
+        margin-top: 18em;
+        height: 3.5em;
+        align-self: center;
+      }
     }
-  }
 
-  /* Second boxWithIcon */
+    /* Second boxWithIcon */
     div:nth-child(2) {
       display: flex;
       span {
         align-self: center;
         top: 21em;
       }
-    ${BlueLine} {
-      width: 0;
-      margin: 0;
-      margin-top: 19.3em;
-      height: 3.5em;
-      z-index: -1;
-      align-self: center;
+      ${BlueLine} {
+        width: 0;
+        margin: 0;
+        margin-top: 19.3em;
+        height: 3.5em;
+        z-index: -1;
+        align-self: center;
+      }
     }
-}
 
-  /* Third boxWithIcon */
+    /* Third boxWithIcon */
     div:nth-child(3) {
       margin: 0;
       margin-top: 4em;
@@ -251,20 +251,20 @@ export const Container = styled.div`
       }
     }
 
-  ${DivImage} {
-    margin-top: 4em;
-    background-image: url(${boostMobile});
-    background-repeat: space;
-    background-size: cover;
-    background-position: left;
-    height: 16.5em;
+    ${DivImage} {
+      margin-top: 4em;
+      background-image: url(${boostMobile});
+      background-repeat: space;
+      background-size: cover;
+      background-position: left;
+      height: 16.5em;
     }
     ${LinkBottom} {
       font-size: 1.25rem;
     }
 
     ${H1Boost} {
-      line-height: calc(100% + .5em);
+      line-height: calc(100% + 0.5em);
       font-size: 1.5rem;
       text-align: center;
       margin: 0;
@@ -274,5 +274,5 @@ export const Container = styled.div`
     ${WhiteHover} {
       margin-top: 1em;
     }
-}
-`;
+  }
+`

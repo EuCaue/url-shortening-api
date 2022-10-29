@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   Container,
   NavBar,
@@ -13,7 +13,7 @@ import {
 } from './styled';
 import logo from '../../assets/images/logo.svg';
 
-export default function Header() {
+export default function Header(): JSX.Element {
   interface PropsUl {
     li1: string;
     li2: string;
@@ -21,8 +21,11 @@ export default function Header() {
     li4: string;
     li5: string;
   }
+
+  // NOTE: true: show the navBarMobile
   const [navMobile, setNavMobile] = useState<boolean>(false);
 
+  // NOTE: Menu for the navbar mobile
   const Menu = (props: PropsUl): JSX.Element => {
     return (
       <UlMobile navMobile={navMobile}>
@@ -47,13 +50,17 @@ export default function Header() {
   };
   return (
     <Container>
+      {/* navbar PC */}
       <NavBar>
         <img src={logo} alt="Shortly" />
         <a href="#">Features</a>
         <a href="#">Pricing</a>
         <a href="#">Resources</a>
+
+        {/* NOTE: blank space */}
         <Divider />
 
+        {/* login && SignUp button */}
         <span>
           <a href="#">Login</a>
           <WhiteHover>
@@ -62,8 +69,11 @@ export default function Header() {
         </span>
       </NavBar>
 
+      {/* NOTE: mobile navbar  */}
       <NavBarMobile navMobile={navMobile}>
         <img src={logo} width="110" alt="Shortly" />
+
+        {/* NOTE: icon button for open the menu */}
         <TbMenuStyled
           size={35}
           color={navMobile ? 'black' : 'gray'}
