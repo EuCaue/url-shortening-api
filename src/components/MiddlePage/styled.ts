@@ -7,7 +7,6 @@ import * as colors from '../../assets/styles/configColors/colors';
 export const Img = styled.img`
   align-items: center;
   justify-content: center;
-  margin-left: 12em;
   margin-top: 2em;
 `;
 
@@ -16,6 +15,7 @@ export const H1 = styled.h1`
   align-items: center;
   justify-content: center;
   font-size: 3.5rem;
+
   width: 7.39em;
   color: ${colors.veryDarkBlue};
 `;
@@ -69,8 +69,10 @@ export const Container = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12em;
   @media screen and (max-width: 60em) and (min-width: 20em) {
     flex-direction: column-reverse;
+    gap: 0;
     ${Img} {
       margin-left: 10em;
       width: 29em;
