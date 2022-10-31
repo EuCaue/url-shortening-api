@@ -295,10 +295,11 @@ export const Container = styled.div`
 
     ${GrayLine} {
       background-color: ${colors.gray};
-      width: clamp(min(100% + 4vmax), 106%, max(109% - 9vmax));
+      /* width: clamp(min(100% + 4vmax), 106%, max(109% - 9vmax)); */
       position: absolute;
+      top: 2em;
       height: 0.05em;
-      right: 1em;
+      /* right: -1em; */
       display: flex;
       margin-top: 0.5em;
       align-self: normal;
