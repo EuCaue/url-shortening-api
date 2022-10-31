@@ -49,13 +49,6 @@ export default function ShortForm() {
   const [apiCode, setApiCode] = useState<string>('');
   const [error, setError] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
-  const [data, setData] = useState<ShortAPI>({
-    result: {
-      code: '',
-      full_short_link: '',
-      original_link: '',
-    },
-  });
   const [originalLink, setOriginalLink] = useState<string>('');
   // array from ResponseAPI components
   const [responseApi, SetResponseApi] = useState<JSX.Element[]>([
@@ -67,6 +60,7 @@ export default function ShortForm() {
   // HandleSubmit Function.
   const handleSubmit = async (event?: FormEvent): Promise<void> => {
     event?.preventDefault();
+    // check with has a url
     if (urlParams === '') {
       setError(true);
     }
@@ -79,7 +73,6 @@ export default function ShortForm() {
     try {
       // eslint-disable-next-line no-shadow
       const { data } = await axios.get<ShortAPI>(`${baseAPI}${urlParams}`);
-      setData(data);
       setApiCode(data.result.code);
       setOriginalLink(data.result.original_link);
       setShortLink(data.result.full_short_link);
@@ -115,6 +108,7 @@ export default function ShortForm() {
       <></>
     );
   }
+
   // Function for copyButton.
   const copyShortLink = (): void => {
     setCopied(true);
@@ -150,6 +144,7 @@ export default function ShortForm() {
           <Span error={error}>
             <InputBox
               autoFocus
+              type="text"
               placeholder="Shorten a link here..."
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 setUrlParams(e.target.value);
