@@ -9,6 +9,7 @@ import {
   FlexIcons,
 } from './styled';
 import Icon from '../../assets/styles/ShortlyWhiteSVG';
+import { SpanCopyLink } from '../ShortForm/styled';
 
 interface ListProps {
   H1?: string;

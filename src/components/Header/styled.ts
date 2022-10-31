@@ -83,7 +83,7 @@ export const UlMobile = styled.ul<ShowNavMobile>`
   height: 22em;
   border-radius: 12px;
   top: 5em;
-
+  right: calc(-62vw - 10%);
   background-color: ${colors.darkViolet};
   animation: box 500ms linear;
   a {
@@ -132,7 +132,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: auto;
-  position: relative;
+  /* position: relative; */
 
   /* Media query */
   @media screen and (max-width: 60em) and (min-width: 20em) {
