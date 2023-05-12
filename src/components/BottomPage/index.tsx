@@ -11,7 +11,6 @@ import {
   DivImage,
   H1Boost,
   LinkBottom,
-  WhiteHover,
 } from './styled';
 import iconBrand from '../../assets/images/icon-brand-recognition.svg';
 import iconRecord from '../../assets/images/icon-detailed-records.svg';
@@ -23,16 +22,16 @@ interface BoxIcon {
   p: string;
 }
 
-const BoxWithIcon = (props: BoxIcon): JSX.Element => {
+function BoxWithIcon({ icon, h1, p }: BoxIcon): JSX.Element {
   return (
     <Background>
-      <BlueLine></BlueLine>
-      <IconSVG icon={props.icon} />
-      <H1>{props.h1}</H1>
-      <P>{props.p}</P>
+      <BlueLine />
+      <IconSVG icon={icon} />
+      <H1>{h1}</H1>
+      <P>{p}</P>
     </Background>
   );
-};
+}
 
 export default function BottomPage() {
   return (
@@ -57,11 +56,10 @@ export default function BottomPage() {
 		"
         />
       </ContainerFlex>
+
       <DivImage>
         <H1Boost>Boost your links today</H1Boost>
-        <WhiteHover>
-          <LinkBottom href="#">Get Started</LinkBottom>
-        </WhiteHover>
+        <LinkBottom>Get Started</LinkBottom>
       </DivImage>
     </Container>
   );

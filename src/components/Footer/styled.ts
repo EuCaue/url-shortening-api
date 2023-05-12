@@ -49,22 +49,27 @@ export const FlexIcons = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  align-self: center;
   margin-left: 4em;
   margin-bottom: 5em;
+  transition: all 0.9s ease;
+  width: 10%;
 
-  /* NOTE: spacing between svg's */
   svg {
     display: flex;
-    margin-left: 2em;
+    align-items: center;
+    align-self: center;
+    width: 100%;
+    gap: 2rem;
   }
 
-  /* NOTE: make the svg blue */
   a {
     height: 0;
     width: auto;
     :hover {
       svg {
         path {
+          transition: all 0.4s ease;
           fill: ${colors.cyan};
         }
       }
@@ -72,7 +77,6 @@ export const FlexIcons = styled.div`
   }
 `;
 
-// NOTE: Container && Mediaquerie
 export const FooterContainer = styled.footer`
   display: flex;
   justify-content: center;

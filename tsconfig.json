@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "plugins": [
-      {
-        "name": "typescript-styled-plugin"
-      }
-    ],
     "useDefineForClassFields": true,
     "lib": [
       "DOM",
       "DOM.Iterable",
       "ESNext"
+    ],
+    "plugins": [
+      {
+        "name": "@styled/typescript-styled-plugin"
+      }
     ],
     "allowJs": false,
     "skipLibCheck": true,

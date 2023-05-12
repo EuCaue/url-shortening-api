@@ -8,39 +8,20 @@ type Props = {
   error: boolean;
 };
 
-type CopyLink = {
-  copyLink: boolean;
-};
-
-// NOTE: whitehover in the buttons
-export const WhiteHover = styled.span`
-  z-index: 1;
-  margin-left: 1.2em;
-  border-radius: 5px;
-  :hover {
-    background-color: white;
-    opacity: 100%;
-  }
-`;
-
-// SubmitButton
 export const SubmitButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.cyan};
   border: none;
   color: #fff !important;
   border-radius: 5px;
   height: 3em;
   padding: 1em 1.5em;
   font-weight: 700;
-  :hover {
-    cursor: pointer;
-    opacity: 50%;
-    transition: all 400ms ease-out;
-  }
+  position: relative;
+  transition: all 0.4s ease;
   z-index: 3;
+  background-color: ${colors.cyan};
 `;
 
 // InputBox
@@ -49,33 +30,29 @@ export const InputBox = styled.input<Props>`
   outline: none;
   align-items: center;
   justify-content: center;
+  padding-left: 0.5rem;
   width: 45em;
   height: 3em;
   border-radius: 5px;
   border: ${(props) => (props.error === false ? 'none' : 'solid')};
   border-color: ${colors.red};
-  /* NOTE: placeholder */
   ::placeholder {
     color: ${(props) =>
       props.error === false ? `currentColor` : `${colors.red}`};
-    padding: 1.5em;
     font-size: 16px;
   }
   ::-moz-placeholder {
     color: ${(props) =>
       props.error === false ? 'currentColor' : `${colors.red}`};
-    padding: 1.5em;
     font-size: 16px;
   }
   ::-webkit-input-placeholder {
     color: ${(props) =>
       props.error === false ? 'currentColor' : `${colors.red}`};
-    padding: 1.5em;
     font-size: 16px;
   }
 `;
 
-// NOTE: text with the link it's not valid
 export const Small = styled.small`
   flex: 0;
   flex-basis: 100%;
@@ -86,25 +63,15 @@ export const Small = styled.small`
   flex-wrap: wrap;
 `;
 
-// NOTE: span flex for the components inside of the form
 export const Span = styled.span<Props>`
   display: flex;
   align-items: center;
   position: relative;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   padding-top: ${(props) => (props.error === false ? '0' : '1.3em')};
 `;
 
-// span flex for the copylink
-export const SpanCopyLink = styled.span`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-// Form
 export const Form = styled.form`
   background-image: url(${ImgBoost});
   background-color: ${colors.darkViolet};
@@ -119,58 +86,6 @@ export const Form = styled.form`
   height: 7em;
 `;
 
-// ResponseApi div
-export const ShortLink = styled.div`
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 60em;
-  margin-top: 1em;
-  margin-right: 3.5em;
-  z-index: 1;
-  height: 3em;
-  position: relative;
-  border-radius: 5px;
-`;
-
-// box with the shorten link
-export const ShortenLink = styled.a`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1em;
-  font-weight: 500;
-  color: ${colors.cyan};
-`;
-
-// box with the original link
-export const OriginalLink = styled.a`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 500;
-  text-decoration: none;
-  color: ${colors.veryDarkViolet};
-  :hover {
-    color: ${colors.darkViolet};
-  }
-  margin-left: 1em;
-`;
-
-// copybutton
-export const CopyButton = styled(SubmitButton)<CopyLink>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 1em;
-  padding: 1em 1.5em;
-  height: 1rem;
-  background-color: ${(props) =>
-    props.copyLink === true ? colors.darkViolet : colors.cyan};
-`;
-
-// h1 below the shortLink
 export const H1 = styled.h1`
   display: flex;
   align-items: center;
@@ -188,12 +103,6 @@ export const P = styled.p`
   font-weight: 500;
 `;
 
-// mobile grayline in the shortlink
-export const GrayLine = styled.span`
-  position: relative;
-`;
-
-// Container && mediaquerie
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -215,7 +124,7 @@ export const Container = styled.div`
     }
 
     ${Span} {
-      flex-direction: column;
+      flex-direction: row;
       padding-top: 1.3em;
     }
 
@@ -229,21 +138,9 @@ export const Container = styled.div`
     }
 
     ${SubmitButton} {
-      width: 94%;
+      width: 85%;
       text-align: center;
-      margin-right: 8.9em;
       margin-bottom: 1em;
-      :hover {
-        opacity: 100%;
-      }
-    }
-
-    ${WhiteHover} {
-      width: 90%;
-      :hover {
-        opacity: 100%;
-        background-color: initial;
-      }
     }
 
     ${Small} {
@@ -252,57 +149,6 @@ export const Container = styled.div`
       left: 8%;
       margin-top: 0.6em;
       top: 40%;
-    }
-
-    ${ShortLink} {
-      flex-direction: column;
-      width: 90%;
-      justify-content: left;
-      align-items: left;
-      flex-wrap: wrap;
-      height: 100%;
-      margin: 0;
-      padding: 1em;
-      margin-top: 1em;
-    }
-
-    ${SpanCopyLink} {
-      width: 100%;
-      justify-content: left;
-      text-align: left;
-      align-self: flex-start;
-      margin-top: 1em;
-      margin-right: 2em;
-    }
-
-    ${OriginalLink} {
-      display: flex;
-      align-self: flex-start;
-      margin-left: 0;
-      margin-right: 5em;
-    }
-
-    ${ShortenLink} {
-      margin: 0;
-    }
-
-    ${CopyButton} {
-      padding: 1.3em 2em;
-      margin: 0;
-      margin-top: 1em;
-      width: 120%;
-    }
-
-    ${GrayLine} {
-      background-color: ${colors.gray};
-      /* width: clamp(min(100% + 4vmax), 106%, max(109% - 9vmax)); */
-      position: absolute;
-      top: 2em;
-      height: 0.05em;
-      /* right: -1em; */
-      display: flex;
-      margin-top: 0.5em;
-      align-self: normal;
     }
 
     ${H1} {

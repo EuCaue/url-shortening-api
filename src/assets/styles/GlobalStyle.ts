@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-import * as colors from './configColors/colors';
-
 export default createGlobalStyle`
     * {
     margin: 0;
@@ -9,7 +7,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
-
+    transition: all 0.2s ease;
 }
 
 html, body, #root {
@@ -18,14 +16,29 @@ html, body, #root {
 
 body {
   overflow-x: hidden;
-  ::-webkit-scrollbar {
-  display: none;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-  z-index: 1;
 }
 
+button {
+position: relative;
+ cursor: pointer;
+  &:hover {
+    ::before {
+      display: block;
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      background-color: rgba(255, 255, 250, 0.6);
+    }
+  }
+  ::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 10%;
+    height: 100%;
+    border-radius: 5px;
+    transition: all 550ms ease;
+  }
 }
-
 
 `;

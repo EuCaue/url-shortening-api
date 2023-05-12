@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import * as colors from '../../assets/styles/configColors/colors';
 
-// IMG
 export const Img = styled.img`
   align-items: center;
   justify-content: center;
@@ -29,42 +28,30 @@ export const H2 = styled.h2`
   font-weight: 500;
 `;
 
-// "Get Started button"
-export const Link = styled.a`
+export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${colors.cyan};
   border: none;
   color: #fff !important;
   border-radius: 2em;
   padding: 0.5em 1.5em;
   text-decoration: none;
-  color: ${colors.grayishViolet};
+  width: fit-content;
   font-weight: 700;
-  width: fit-content;
+  background-color: ${colors.cyan};
+  color: ${colors.grayishViolet};
 `;
 
-// NOTE: whitehover in the button
-export const WhiteHover = styled.span`
-  margin-top: 1.5em;
-  width: fit-content;
-  border-radius: 2em;
-  :hover {
-    background-color: white;
-    transition: all 400ms ease-out;
-    opacity: 50%;
-  }
-`;
-
-// NOTE: span flex
 export const Span = styled.span`
   display: flex;
+  align-items: flex-start;
+  justify-content: center;
   flex-direction: column;
+  gap: 1rem;
   margin-left: 15em;
 `;
 
-// NOTE: Container && mediaqueries
 export const Container = styled.section`
   display: flex;
   align-items: center;
@@ -91,7 +78,7 @@ export const Container = styled.section`
       font-size: 1rem;
     }
 
-    ${Link} {
+    ${Button} {
       margin-left: 2.5em;
       width: 12em;
       height: 3em;

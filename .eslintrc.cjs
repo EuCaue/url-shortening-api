@@ -1,29 +1,37 @@
 module.exports = {
   env: {
     browser: true,
+    node: true,
+    commonjs: true,
     es2021: true,
   },
   extends: [
-    'airbnb-base',
-    'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
+    'airbnb',
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'plugin:import/typescript',
-    'plugin:@typescript-eslint/recommended',
     'prettier',
   ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
+  overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    project: './tsconfig.json',
   },
-  plugins: ['@typescript-eslint',],
+  plugins: ['react', 'prettier', '@typescript-eslint'],
   rules: {
-    'import/extensions': 0,
+    'prettier/prettier': ['error'],
+    'jsx-a11y/label-has-associated-control': [
+      2,
+      {
+        labelComponents: ['FormLabel'],
+        labelAttributes: ['label'],
+        controlComponents: ['input'],
+        depth: 1,
+      },
+    ],
   },
 };

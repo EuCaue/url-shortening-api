@@ -8,13 +8,11 @@ interface ShowNavMobile {
   navMobile: boolean;
 }
 
-// blank space
 export const Divider = styled.div`
   width: 21em;
 `;
 
-// SignUp Button
-export const SignUp = styled.a`
+export const SignUp = styled.button`
   background-color: ${colors.cyan};
   border: none;
   color: #fff !important;
@@ -22,20 +20,6 @@ export const SignUp = styled.a`
   padding: 0.3em 1.5em;
 `;
 
-// NOTE: WhiteHover on buttons
-export const WhiteHover = styled.span`
-  background-color: red;
-  width: fit-content;
-  border-radius: 2em;
-  margin-left: 1em;
-  :hover {
-    background-color: white;
-    opacity: 50%;
-    transition: all 400ms ease-out;
-  }
-`;
-
-// navBar
 export const NavBar = styled.nav`
   display: flex;
   justify-content: space-around;
@@ -45,7 +29,8 @@ export const NavBar = styled.nav`
   width: 65em;
   margin-top: 1.2em;
 
-  a {
+  a,
+  button {
     text-decoration: none;
     color: ${colors.grayishViolet};
     font-weight: 700;
@@ -64,12 +49,11 @@ export const NavBar = styled.nav`
   }
 `;
 
-//* Mobile
 export const NavBarMobile = styled.nav<ShowNavMobile>`
-  display: flex;
-  align-items: center;
-  position: relative;
   display: none;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
 `;
 
 export const UlMobile = styled.ul<ShowNavMobile>`
@@ -79,62 +63,49 @@ export const UlMobile = styled.ul<ShowNavMobile>`
   text-align: center;
   flex-direction: column;
   position: absolute;
-  width: 18em;
-  height: 22em;
+  width: 85%;
+  height: 50%;
   border-radius: 12px;
-  top: 5em;
-  right: calc(-62vw - 10%);
+  inset: 0 0 25% 0;
+  margin: auto;
+  box-shadow: 0 0 100vh 5px rgba(0, 0, 0, 0.8);
+  animation: box 500ms ease;
+  gap: 2rem;
+  list-style-type: none;
   background-color: ${colors.darkViolet};
-  animation: box 500ms linear;
   a {
     color: white;
     font-weight: 700;
     text-decoration: none;
   }
-  li {
-    display: flex;
-    margin-top: 2em;
-    list-style-type: none;
-  }
-  li:nth-child(1) {
-    margin-top: 0;
+
+  li:nth-child(3) {
+    position: relative;
+    ::before {
+      content: '';
+      position: absolute;
+      border: 2px solid ${colors.grayishViolet};
+      width: 14rem;
+      top: 2.2rem;
+      left: -75%;
+    }
   }
 `;
 
-// NOTE: grayline in menu
-export const GrayLine = styled.span`
-  background-color: ${colors.grayishViolet};
-  position: absolute;
-  top: 12.5em;
-  opacity: 50%;
-  width: 15em;
-  height: 0.01em;
-  transition: none;
-  animation: none;
-`;
-
-// SignUpMobile Button
 export const SignUpMobile = styled(SignUp)`
   width: 15em;
   height: 2.3em;
   text-align: center;
 `;
 
-// Icon for the menu
-export const TbMenuStyled = styled(TbMenu2)`
-  position: absolute;
-  left: calc(84vw);
-`;
+export const TbMenuStyled = styled(TbMenu2)``;
 
-// NOTE: mediaquerie && container
 export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: auto;
-  /* position: relative; */
 
-  /* Media query */
   @media screen and (max-width: 60em) and (min-width: 20em) {
     ${NavBarMobile} {
       display: flex;
@@ -142,30 +113,16 @@ export const Container = styled.div`
       margin-left: 1em;
     }
 
-    ${UlMobile} {
-    }
-
     ${NavBar} {
       display: none;
     }
-    ${GrayLine} {
-      opacity: 50%;
-      position: absolute;
-      top: 12.3em;
-    }
+
     @keyframes box {
       from {
-        top: 1.5em;
-      }
-      25% {
-        top: 2.5em;
-      }
-
-      50% {
-        top: 3.5em;
+        inset: 0 0 0% 0;
       }
       to {
-        top: 5em;
+        inset: 0 0 25% 0;
       }
     }
   }

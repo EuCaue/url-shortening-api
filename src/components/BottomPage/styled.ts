@@ -1,33 +1,20 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable import/prefer-default-export */
-import styled from 'styled-components'
-import * as colors from '../../assets/styles/configColors/colors'
-import boostDesktop from '../../assets/images/bg-boost-desktop.svg'
-import boostMobile from '../../assets/images/bg-boost-mobile.svg'
-import { Link } from '../MiddlePage/styled'
+import styled from 'styled-components';
+import * as colors from '../../assets/styles/configColors/colors';
+import boostDesktop from '../../assets/images/bg-boost-desktop.svg';
+import boostMobile from '../../assets/images/bg-boost-mobile.svg';
+import { Button } from '../MiddlePage/styled';
 
 interface Icon {
-  icon: string
+  icon: string;
 }
 
-// whitehover on buttons
-export const WhiteHover = styled.span`
-  border-radius: 10em;
-  border-radius: 2em;
-  margin-top: 1.5em;
-  :hover {
-    background-color: white;
-    opacity: 100%;
-  }
-`
-
-// the blueline between the Background
 export const BlueLine = styled.div`
   display: flex;
   position: absolute;
-
   z-index: -1;
-` // Container Flex
+`;
 export const ContainerFlex = styled.section`
   display: flex;
   align-items: center;
@@ -36,7 +23,6 @@ export const ContainerFlex = styled.section`
   justify-content: center;
   position: relative;
 
-  /* The first boxWithIcon */
   div:nth-child(1) {
     margin-bottom: 4.8em;
     ${BlueLine} {
@@ -52,7 +38,6 @@ export const ContainerFlex = styled.section`
     }
   }
 
-  /* The second boxWithIcon */
   div:nth-child(2) {
     ${BlueLine} {
       width: 2.2em;
@@ -72,7 +57,6 @@ export const ContainerFlex = styled.section`
     }
   }
 
-  /* The third boxWithIcon */
   div:nth-child(3) {
     margin-top: 9em;
 
@@ -81,7 +65,7 @@ export const ContainerFlex = styled.section`
       top: 6.5em;
     }
   }
-`
+`;
 
 // Background div for boxWithIcon
 export const Background = styled.div`
@@ -95,7 +79,7 @@ export const Background = styled.div`
   height: 190%;
   flex-wrap: wrap;
   border-radius: 4px;
-`
+`;
 
 // IconSVG
 export const IconSVG = styled.span<Icon>`
@@ -110,7 +94,7 @@ export const IconSVG = styled.span<Icon>`
   position: absolute;
   margin-left: 1.6em;
   top: 2em;
-`
+`;
 
 // H1 below the IconSVG
 export const H1 = styled.h1`
@@ -121,7 +105,7 @@ export const H1 = styled.h1`
   font-weight: 700;
   font-size: 1.2em;
   justify-content: center;
-`
+`;
 
 // P below the IconSVG
 export const P = styled.p`
@@ -133,47 +117,47 @@ export const P = styled.p`
   padding-bottom: 1.7em;
   font-size: 0.9em;
   text-align: left;
-`
+`;
 
 // H1 for "Boost your links today"
 export const H1Boost = styled.h1`
   font-size: 2em;
   color: #fff;
-  margin-right: 1em;
-`
+`;
 
 // Backoground div image
 export const DivImage = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
+  gap: 10%;
+  text-align: center;
   margin: auto;
   margin-top: 6em;
-  text-align: center;
-  align-items: center;
   height: 13.2em;
   width: 100%;
   background-image: url(${boostDesktop});
   background-repeat: no-repeat;
   background-position: center;
   background-color: ${colors.darkViolet};
-`
+  background-size: 100%;
+`;
 
-// "Get Started button"
-export const LinkBottom = styled(Link)`
-  border-radius: 2em;
+export const LinkBottom = styled(Button)`
+  border-radius: 100vw;
   margin-top: 0;
-  font-size: 1.4em;
-  width: fit-content !important;
+  font-size: 1.4rem;
+  position: relative;
+  cursor: pointer;
 
-  :hover {
-    opacity: 50%;
-    cursor: pointer;
-    transition: all 400ms ease-out;
+  &:hover {
+    ::before {
+      border-radius: 100vw;
+    }
   }
-`
+`;
 
-// Container || MediaQueries
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -259,6 +243,7 @@ export const Container = styled.div`
       background-position: left;
       height: 16.5em;
     }
+
     ${LinkBottom} {
       font-size: 1.25rem;
     }
@@ -270,9 +255,5 @@ export const Container = styled.div`
       margin: 0;
       width: 100%;
     }
-
-    ${WhiteHover} {
-      margin-top: 1em;
-    }
   }
-`
+`;
