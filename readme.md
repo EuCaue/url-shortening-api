@@ -15,4 +15,4 @@
 
 - [Live Preview](https://url-shortening-api-indol.vercel.app/)
 - [Challenge from Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G)
-- [Portfolio](https://portfolio-caue-souza.vercel.app/)
+- [Portfolio](https://www.eucaue.tech)
